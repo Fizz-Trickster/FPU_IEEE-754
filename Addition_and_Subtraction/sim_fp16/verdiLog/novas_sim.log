@@ -1,0 +1,121 @@
+Invoking simulator...
+
+./simv -sml=verdi +UVM_VERDI_TRACE=UVM_AWARE +fsdb+gate=off -ucli2Proc -ucli
+debImport "-i" "-simflow" "-dbdir" "./simv.daidir"
+*Verdi* Loading libsscore_vcs202303.so
+
+*Verdi* : Enable RPC Server(1941324)
+
+srcTBInvokeSim
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version U-2023.03-SP2_Full64; Runtime version U-2023.03-SP2_Full64;  Dec  9 12:46 2023
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 0 ps
+CPU Time:      0.070 seconds;       Data structure size:   0.0Mb
+Sat Dec  9 12:48:56 2023
+schSelect -win $_nSchema3 -signal "gen_sel\[0\].sel_or\[0\]"
+schProperties -win $_nSchema3 -Basic on
+verdiSetActWin -win $_nSchema_3
+schSelect -win $_nSchema3 -signal "BADA_nbc.gen_sel_or\[0\].out\[0\]"
+schProperties -win $_nSchema3 -Basic on
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcHBSelect "BADA_nbc.gen_sel_or\[0\].gen_sel_or\[0\]" -win $_nTrace1
+srcHBSelect "BADA_nbc.gen_sel_or\[0\].gen_sel_or\[0\]" -win $_nTrace1
+srcSetScope "BADA_nbc.gen_sel_or\[0\].gen_sel_or\[0\]" -delim "." -win $_nTrace1
+srcHBSelect "BADA_nbc.gen_sel_or\[0\].gen_sel_or\[0\]" -win $_nTrace1
+srcHBSelect "BADA_nbc.gen_sel_or\[0\].gen_sel_or\[0\]" -win $_nTrace1
+srcHBSelect "BADA_nbc.gen_sel_or\[0\].gen_sel_or\[0\]" -win $_nTrace1
+srcHBSelect "BADA_nbc" -win $_nTrace1
+srcHBSelect "BADA_nbc.gen_sel_or\[0\].gen_sel_or\[0\]" -win $_nTrace1
+srcHBSelect "BADA_nbc.gen_sel_or\[0\]" -win $_nTrace1
+verdiDockWidgetSetCurTab -dock widgetDock_<Decl._Tree>
+verdiSetActWin -dock widgetDock_<Decl._Tree>
+verdiDockWidgetSetCurTab -dock widgetDock_<Stack>
+verdiSetActWin -dock widgetDock_<Stack>
+verdiDockWidgetSetCurTab -dock widgetDock_<Class._Tree>
+verdiSetActWin -dock widgetDock_<Class._Tree>
+verdiDockWidgetSetCurTab -dock widgetDock_<Object._Tree>
+verdiSetActWin -dock widgetDock_<Object._Tree>
+verdiDockWidgetSetCurTab -dock widgetDock_<Decl._Tree>
+verdiSetActWin -dock widgetDock_<Decl._Tree>
+verdiDockWidgetSetCurTab -dock widgetDock_<Inst._Tree>
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcHBSelect "BADA_nbc.gen_sel_or\[0\]" -win $_nTrace1
+srcHBSelect "BADA_nbc.gen_sel_or\[0\]" -win $_nTrace1
+srcHBSelect "BADA_nbc.gen_sel_or\[0\]" -win $_nTrace1
+srcHBSelect "BADA_nbc.gen_sel_or\[0\]" -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "gen_sel_prev\[i\].out\[1\]" -line 44 -pos 1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "gen_sel_prev\[i\].out\[1\]" -line 44 -pos 1
+srcAction -pos 43 11 6 -win $_nTrace1 -name "gen_sel_prev\[i\].out\[1\]" -ctrlKey \
+          off
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "gen_sel_or\[i\].out" -line 60 -pos 1
+srcAction -pos 59 7 3 -win $_nTrace1 -name "gen_sel_or\[i\].out" -ctrlKey off
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "gen_sel_or\[i\].out" -line 60 -pos 1
+srcTBShowReference -type RWPDC
+nsMsgSwitchTab -tab intercon
+tfgGenerate -incr -ref "BADA_nbc.gen_sel_or\[0\].out\[0:0\]#0#T" -startWithStmt -schFG
+tfgNodeTraceActTrans -win $_tFlowView4 -folder "group_0#T" "BADA_nbc.gen_sel_or\[0\].out" -stopLevel 10
+tfgFolderClick  -funcblk  -win $_tFlowView4 "BADA_nbc.gen_sel_or\[0\].out#0#T"
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "gen_sel_or\[i\].out" -line 60 -pos 1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "gen_sel_or\[i\].out" -line 60 -pos 1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "gen_sel_or\[i\].out" -line 60 -pos 1
+srcAction -pos 59 7 4 -win $_nTrace1 -name "gen_sel_or\[i\].out" -ctrlKey off
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "gen_sel_or\[i\].out" -line 60 -pos 1
+srcAction -pos 59 7 11 -win $_nTrace1 -name "gen_sel_or\[i\].out" -ctrlKey off
+verdiDockWidgetSetCurTab -dock windowDock_nSchema_3
+verdiSetActWin -win $_nSchema_3
+schSelect -win $_nSchema3 -inst "BADA_nbc\(@1\):SigOp19:89:92:Combo"
+schProperties -win $_nSchema3 -Basic on -Library on
+schPushViewIn -win $_nSchema3
+srcSetScope "BADA_nbc" -delim "." -win $_nTrace1
+srcSelect -win $_nTrace1 -range {89 92 1 11 1 1}
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+verdiDockWidgetSetCurTab -dock windowDock_nSchema_3
+verdiSetActWin -win $_nSchema_3
+schSelect -win $_nSchema3 -signal "gen_mux\[2\].out\[0:0\]\[7:0\]"
+schProperties -win $_nSchema3 -Basic on
+schProperties -win $_nSchema3 -row 1 -col 1 -propType Basic -showType ZoomIn
+schSelect -win $_nSchema3 -signal "gen_mux\[2\].out\[0:0\]\[7:0\]"
+schDeselectAll -win $_nSchema3
+schSelect -win $_nSchema3 -signal "BADA_nbc.gen_mux\[0\].out\[0\]\[7:4\]"
+schProperties -win $_nSchema3 -Basic on
+verdiDockWidgetSetCurTab -dock widgetDock_MTB_SOURCE_TAB_1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "op_b\[OP_WIDTH*\(i+1\)-1:OP_WIDTH*i\]" -line 96 -pos 1 -win \
+          $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "out\[j\]" -line 68 -pos 1 -win $_nTrace1
+verdiDockWidgetSetCurTab -dock windowDock_nSchema_3
+verdiSetActWin -win $_nSchema_3
+schZoomOut -win $_nSchema3 -pos 36658 9386
+schZoomOut -win $_nSchema3 -pos 36658 9386
+schSelect -win $_nSchema3 -signal "res_a\[23:0\]"
+schProperties -win $_nSchema3 -Basic on
+schZoomOut -win $_nSchema3 -pos 41842 19022
+schZoomOut -win $_nSchema3 -pos 41841 19022
+schZoomOut -win $_nSchema3 -pos 41841 19021
+schSelect -win $_nSchema3 -signal "BADA_nbc.gen_mux\[1\].out\[0\]\[3:0\]"
+schProperties -win $_nSchema3 -Basic on
+schSelect -win $_nSchema3 -signal "BADA_nbc.gen_mux\[1\].out\[0\]\[7:4\]"
+schProperties -win $_nSchema3 -Basic on
+schSelect -win $_nSchema3 -signal "BADA_nbc.gen_mux\[2\].out\[0\]\[7:4\]"
+schProperties -win $_nSchema3 -Basic on
+schSelect -win $_nSchema3 -signal "BADA_nbc.gen_mux\[0\].out\[0\]\[3:0\]"
+schProperties -win $_nSchema3 -Basic on
+schDeselectAll -win $_nSchema3
+schSelect -win $_nSchema3 -signal "res_a\[23:0\]"
+schProperties -win $_nSchema3 -Basic on
+verdiWindowResize -win $_Verdi_1 "524" "54" "1919" "1169"
+debExit

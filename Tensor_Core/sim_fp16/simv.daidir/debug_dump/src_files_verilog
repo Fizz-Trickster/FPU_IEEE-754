@@ -1,0 +1,7 @@
+/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/kulisch_acc_fp16.v
+/home/ysyoon/PROJECT/FPU_IEEE-754/Addition_and_Subtraction/fp16_add.v
+/home/ysyoon/PROJECT/FPU_IEEE-754/Multiplication/fp16_mul.v
+/home/ysyoon/PROJECT/FPU_IEEE-754/Tensor_Core/sim_fp16/tb/tb_tensor_core.v
+/home/ysyoon/PROJECT/FPU_IEEE-754/Tensor_Core/tensor_core_gemm.v
+/home/ysyoon/PROJECT/FPU_IEEE-754/Tensor_Core/tensor_core_mma.v
+/home/ysyoon/PROJECT/FPU_IEEE-754/Tensor_Core/tensor_core_top.v

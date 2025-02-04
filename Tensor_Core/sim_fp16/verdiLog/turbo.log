@@ -1,0 +1,3 @@
+Command Line: /opt/synopsys/verdi/verdi/U-2023.03-SP2/platform/LINUXAMD64/bin/Novas -dbdir simv.daidir -ssf waveform.fsdb
+uname(Linux friday 4.18.0-553.32.1.el8_10.x86_64 #1 SMP Wed Dec 11 16:33:48 UTC 2024 x86_64)
+au time 15015.251112 83.674298 128.176524 delta 315555840 315555840 total 892370944 892370944

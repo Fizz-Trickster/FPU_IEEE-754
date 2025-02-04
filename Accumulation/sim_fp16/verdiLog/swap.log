@@ -1,0 +1,993 @@
+version: (200506)
+
+available memory: 64M bytes
+used memory: 163840 bytes [need 160K bytes if disable swap]
+
+used block: 6 [memory(6) file(0)]
+                 [ 8K(4) 64K(2) { total 160K bytes } ]
+overhead: (9538) bytes for (6) blocks [Average: (1589) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 2(times) 27K(bytes) [6K bytes compressed data from file]
+access => 446108(times) 3497M(bytes)
+          [hit ratio: 99.9996%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (3)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (4)
+closeHead: (1)
+closeTail: (3)
+openCnt: (1)
+fid(3): fd(0) fileName(NULL)
+	mode(rb)	hot(1) cool(0) pos(0)
+fid(2): fd(26) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735618604)
+	mode(w+b)	hot(3) cool(1) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(rb)	hot(2) cool(3) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 13:26:41 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 253952 bytes [need 160K bytes if disable swap]
+
+used block: 10 [memory(10) file(0)]
+                 [ 8K(7) 64K(3) { total 248K bytes } ]
+overhead: (9538) bytes for (10) blocks [Average: (953) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 3(times) 41K(bytes) [9K bytes compressed data from file]
+access => 1233361(times) 9655M(bytes)
+          [hit ratio: 99.9998%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (4)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (6)
+closeHead: (4)
+closeTail: (5)
+openCnt: (1)
+fid(5): fd(42) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735619201)
+	mode(w+b)	hot(0) cool(4) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(rb)	hot(5) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 13:42:37 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 344064 bytes [need 160K bytes if disable swap]
+
+used block: 14 [memory(14) file(0)]
+                 [ 8K(10) 64K(4) { total 336K bytes } ]
+overhead: (9538) bytes for (14) blocks [Average: (681) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 4(times) 55K(bytes) [13K bytes compressed data from file]
+access => 1304153(times) 10216M(bytes)
+          [hit ratio: 99.9997%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (6)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (8)
+closeHead: (6)
+closeTail: (7)
+openCnt: (1)
+fid(7): fd(41) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735620157)
+	mode(w+b)	hot(0) cool(6) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(rb)	hot(7) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 13:52:27 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 434176 bytes [need 160K bytes if disable swap]
+
+used block: 18 [memory(18) file(0)]
+                 [ 8K(13) 64K(5) { total 424K bytes } ]
+overhead: (9538) bytes for (18) blocks [Average: (529) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 5(times) 69K(bytes) [16K bytes compressed data from file]
+access => 1542018(times) 12082M(bytes)
+          [hit ratio: 99.9997%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (8)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (10)
+closeHead: (8)
+closeTail: (9)
+openCnt: (1)
+fid(9): fd(40) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735620747)
+	mode(w+b)	hot(0) cool(8) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(rb)	hot(9) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 13:55:02 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 524288 bytes [need 160K bytes if disable swap]
+
+used block: 22 [memory(22) file(0)]
+                 [ 8K(16) 64K(6) { total 512K bytes } ]
+overhead: (9538) bytes for (22) blocks [Average: (433) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 6(times) 84K(bytes) [20K bytes compressed data from file]
+access => 1631066(times) 12785M(bytes)
+          [hit ratio: 99.9996%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (10)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (12)
+closeHead: (10)
+closeTail: (11)
+openCnt: (1)
+fid(11): fd(40) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735620902)
+	mode(w+b)	hot(0) cool(10) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(rb)	hot(11) cool(0) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 14:12:50 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 614400 bytes [need 160K bytes if disable swap]
+
+used block: 26 [memory(26) file(0)]
+                 [ 8K(19) 64K(7) { total 600K bytes } ]
+overhead: (9538) bytes for (26) blocks [Average: (366) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 7(times) 98K(bytes) [24K bytes compressed data from file]
+access => 1687486(times) 13234M(bytes)
+          [hit ratio: 99.9996%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (12)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (14)
+closeHead: (12)
+closeTail: (13)
+openCnt: (1)
+fid(13): fd(40) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735621970)
+	mode(w+b)	hot(0) cool(12) pos(0)
+fid(12): fd(0) fileName(NULL)
+	mode(rb)	hot(13) cool(0) pos(0)
+fid(11): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 14:15:10 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 704512 bytes [need 160K bytes if disable swap]
+
+used block: 30 [memory(30) file(0)]
+                 [ 8K(22) 64K(8) { total 688K bytes } ]
+overhead: (9538) bytes for (30) blocks [Average: (317) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 8(times) 113K(bytes) [27K bytes compressed data from file]
+access => 1770120(times) 13887M(bytes)
+          [hit ratio: 99.9995%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (14)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (16)
+closeHead: (14)
+closeTail: (15)
+openCnt: (1)
+fid(15): fd(40) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735622110)
+	mode(w+b)	hot(0) cool(14) pos(0)
+fid(14): fd(0) fileName(NULL)
+	mode(rb)	hot(15) cool(0) pos(0)
+fid(13): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(12): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(11): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 14:21:46 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 794624 bytes [need 160K bytes if disable swap]
+
+used block: 34 [memory(34) file(0)]
+                 [ 8K(25) 64K(9) { total 776K bytes } ]
+overhead: (9538) bytes for (34) blocks [Average: (280) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 9(times) 128K(bytes) [31K bytes compressed data from file]
+access => 1841344(times) 14451M(bytes)
+          [hit ratio: 99.9995%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (16)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (18)
+closeHead: (16)
+closeTail: (17)
+openCnt: (1)
+fid(17): fd(40) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735622507)
+	mode(w+b)	hot(0) cool(16) pos(0)
+fid(16): fd(0) fileName(NULL)
+	mode(rb)	hot(17) cool(0) pos(0)
+fid(15): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(14): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(13): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(12): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(11): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 14:51:51 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 884736 bytes [need 160K bytes if disable swap]
+
+used block: 38 [memory(38) file(0)]
+                 [ 8K(28) 64K(10) { total 864K bytes } ]
+overhead: (9538) bytes for (38) blocks [Average: (251) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 10(times) 143K(bytes) [34K bytes compressed data from file]
+access => 1900370(times) 14920M(bytes)
+          [hit ratio: 99.9995%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (18)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (20)
+closeHead: (18)
+closeTail: (19)
+openCnt: (1)
+fid(19): fd(40) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735624312)
+	mode(w+b)	hot(0) cool(18) pos(0)
+fid(18): fd(0) fileName(NULL)
+	mode(rb)	hot(19) cool(0) pos(0)
+fid(17): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(16): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(15): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(14): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(13): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(12): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(11): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 14:55:05 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 974848 bytes [need 160K bytes if disable swap]
+
+used block: 42 [memory(42) file(0)]
+                 [ 8K(31) 64K(11) { total 952K bytes } ]
+overhead: (9538) bytes for (42) blocks [Average: (227) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 11(times) 158K(bytes) [38K bytes compressed data from file]
+access => 1992697(times) 15649M(bytes)
+          [hit ratio: 99.9994%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (20)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (22)
+closeHead: (20)
+closeTail: (21)
+openCnt: (1)
+fid(21): fd(40) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735624506)
+	mode(w+b)	hot(0) cool(20) pos(0)
+fid(20): fd(0) fileName(NULL)
+	mode(rb)	hot(21) cool(0) pos(0)
+fid(19): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(18): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(17): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(16): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(15): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(14): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(13): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(12): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(11): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 16:28:12 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 2M bytes [need 160K bytes if disable swap]
+
+used block: 45 [memory(45) file(0)]
+                 [ 8K(33) 64K(12) { total 2M bytes } ]
+overhead: (9538) bytes for (45) blocks [Average: (211) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 12(times) 171K(bytes) [41K bytes compressed data from file]
+access => 2027642(times) 15927M(bytes)
+          [hit ratio: 99.9994%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (22)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (24)
+closeHead: (22)
+closeTail: (23)
+openCnt: (1)
+fid(23): fd(40) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735630092)
+	mode(w+b)	hot(0) cool(22) pos(0)
+fid(22): fd(0) fileName(NULL)
+	mode(rb)	hot(23) cool(0) pos(0)
+fid(21): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(20): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(19): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(18): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(17): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(16): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(15): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(14): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(13): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(12): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(11): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 16:28:58 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 2M bytes [need 160K bytes if disable swap]
+
+used block: 48 [memory(48) file(0)]
+                 [ 8K(35) 64K(13) { total 2M bytes } ]
+overhead: (9538) bytes for (48) blocks [Average: (198) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 13(times) 184K(bytes) [44K bytes compressed data from file]
+access => 2064361(times) 16218M(bytes)
+          [hit ratio: 99.9994%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (24)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (26)
+closeHead: (24)
+closeTail: (25)
+openCnt: (1)
+fid(25): fd(40) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735630139)
+	mode(w+b)	hot(0) cool(24) pos(0)
+fid(24): fd(0) fileName(NULL)
+	mode(rb)	hot(25) cool(0) pos(0)
+fid(23): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(22): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(21): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(20): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(19): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(18): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(17): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(16): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(15): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(14): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(13): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(12): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(11): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 16:31:05 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 2M bytes [need 160K bytes if disable swap]
+
+used block: 51 [memory(51) file(0)]
+                 [ 8K(37) 64K(14) { total 2M bytes } ]
+overhead: (9538) bytes for (51) blocks [Average: (187) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 14(times) 197K(bytes) [47K bytes compressed data from file]
+access => 2097164(times) 16479M(bytes)
+          [hit ratio: 99.9993%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (26)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (28)
+closeHead: (26)
+closeTail: (27)
+openCnt: (1)
+fid(27): fd(40) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735630266)
+	mode(w+b)	hot(0) cool(26) pos(0)
+fid(26): fd(0) fileName(NULL)
+	mode(rb)	hot(27) cool(0) pos(0)
+fid(25): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(24): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(23): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(22): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(21): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(20): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(19): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(18): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(17): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(16): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(15): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(14): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(13): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(12): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(11): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 16:32:00 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 2M bytes [need 160K bytes if disable swap]
+
+used block: 54 [memory(54) file(0)]
+                 [ 8K(39) 64K(15) { total 2M bytes } ]
+overhead: (9538) bytes for (54) blocks [Average: (176) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 15(times) 210K(bytes) [50K bytes compressed data from file]
+access => 2129978(times) 16740M(bytes)
+          [hit ratio: 99.9993%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (28)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (30)
+closeHead: (28)
+closeTail: (29)
+openCnt: (1)
+fid(29): fd(40) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735630320)
+	mode(w+b)	hot(0) cool(28) pos(0)
+fid(28): fd(0) fileName(NULL)
+	mode(rb)	hot(29) cool(0) pos(0)
+fid(27): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(26): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(25): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(24): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(23): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(22): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(21): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(20): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(19): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(18): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(17): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(16): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(15): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(14): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(13): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(12): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(11): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Tue Dec 31 16:34:20 2024
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 2M bytes [need 160K bytes if disable swap]
+
+used block: 58 [memory(58) file(0)]
+                 [ 8K(42) 64K(16) { total 2M bytes } ]
+overhead: (9538) bytes for (58) blocks [Average: (164) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 16(times) 223K(bytes) [53K bytes compressed data from file]
+access => 2271829(times) 17855M(bytes)
+          [hit ratio: 99.9993%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog)
+used swap file number: (30)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (32)
+closeHead: (30)
+closeTail: (31)
+openCnt: (2)
+fid(31): fd(40) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/verdiLog/_swap_0001#-2069547666#247942)
+	size(0) lastModTime(0) curModTime(1735630461)
+	mode(w+b)	hot(0) cool(30) pos(0)
+fid(30): fd(1073741824) fileName(/home/ysyoon/PROJECT/FPU_IEEE-754/Accumulation/sim_fp16/simv.daidir/kdb.elab++/work.lib++/kulisch_acc_fp16.v.tdc)
+	size(4987) lastModTime(1735630453) curModTime(1735630453)
+	mode(rb)	hot(31) cool(0) pos(0)
+fid(29): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(28): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(27): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(26): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(25): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(24): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(23): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(22): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(21): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(20): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(19): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(18): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(17): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(16): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(15): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(14): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(13): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(12): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(11): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+==================================================
+mySelf(0x237474d0) pre(0x1a722690) next((nil))
+version(200506)
+date(Aug 13 2023 07:34:34)

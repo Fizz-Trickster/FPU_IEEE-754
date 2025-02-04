@@ -1,0 +1,2 @@
+../fp32_mul.v
+tb/tb_fp_mul.v

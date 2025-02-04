@@ -1,0 +1,10 @@
+#######################################################################################
+# fsdb.xxxxx.log : log primitive debug message of FSDB Reader
+# This is for R&D to analyze when there are issues happening when FSDB reading
+# The corresponding FSDB file is /home/ysyoon/PROJECT/FPU_IEEE-754/Tensor_Core/sim_fp16/waveform.fsdb
+#######################################################################################
+[BASIC]Reader version : Chronologic Simulation VCS Release U-2023.03-SP2_Full64
+[BASIC]simulator version : Chronologic Simulation VCS Release U-2023.03-SP2_Full64
+[BASIC]dumper version : FSDB Dumper for VCS, Release Verdi_U-2023.03-SP2, Linux x86_64/64bit, 08/28/2023
+[THREAD]The MTR thread count is 12
+[THREAD]Secondary thread count: 5

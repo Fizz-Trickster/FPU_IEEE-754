@@ -1,0 +1,5 @@
+{"vcs1":{"timestamp_begin":1722248894.729465941, "rt":0.11, "ut":0.05, "st":0.03}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1722248894.286720613}
+{"VCS_COMP_START_TIME": 1722248894.286720613}
+{"VCS_COMP_END_TIME": 1722248895.267733991}
+{"VCS_USER_OPTIONS": "-R -full64 -debug_access+all -kdb -f rtl.f -l vcs.log tb/tb_bada.v"}

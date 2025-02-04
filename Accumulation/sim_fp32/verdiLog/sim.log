@@ -1,0 +1,127 @@
+Command: /home/isc/projects/bit-slice/hw/sim/simv -sml=verdi +UVM_VERDI_TRACE=UVM_AWARE +fsdb+gate=off -ucli2Proc -ucli -l /home/isc/projects/bit-slice/hw/sim/verdiLog/sim.log
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version U-2023.03-SP2_Full64; Runtime version U-2023.03-SP2_Full64;  Dec  9 12:46 2023
+
+ucli% synUtils::getArch
+linux64
+ucli% loaddl -simv /opt/synopsys/verdi/verdi/U-2023.03-SP2/share/PLI/VCS/LINUXAMD64/libnovas.so LoadFSDBDumpCmd;LoadFSDBDumpCmd
+LoadFSDBDumpCmd success
+ucli% config ckptfsdbcheck off;config endofsim noexit;config onfail {enable all};config followactivescope on;catch {setUcliVerdiConnected};set watch::resultTagsForVerdiBP {<ucli_break_bp_status_begin> <ucli_break_bp_status_end>};set ucliCore::support_restore_through_stask_in_verdi 1;cbug::config pretty_print auto;fsdbDumpfile {/home/isc/projects/bit-slice/hw/sim/inter.fsdb} ;fsdbDumpflush ; 
+*Verdi* Loading libsscore_vcs202303.so
+FSDB Dumper for VCS, Release Verdi_U-2023.03-SP2, Linux x86_64/64bit, 08/28/2023
+(C) 1996 - 2023 by Synopsys, Inc.
+*Verdi* : Create FSDB file '/home/isc/projects/bit-slice/hw/sim/inter.fsdb'
+*Verdi* : Flush all FSDB Files at 0 ps.
+
+ucli% synEnv::hasFataled
+0
+ucli% ucliCore::getToolPID
+1941324
+ucli% sps_interactive
+*Verdi* : Enable RPC Server(1941324)
+
+ucli% ucliCore::getToolPID
+1941324
+ucli% ucliCore::getToolPID
+1941324
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% puts $ucliCore::nativeUcliMode
+0
+
+ucli% ucliCore::getToolTopPID
+1941324
+ucli% pid
+1941335
+ucli% synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.isc.1941324 }
+
+ucli% if { [info vars watch::vcbp_str_len_limit_of_get_value] != ""} {set watch::vcbp_str_len_limit_of_get_value 1024}
+1024
+ucli% info command stateVerdiChangeCB
+
+ucli% proc stateVerdiChangeCB args { if {$ucliGUI::state eq "terminated"} {puts "\n<VERDI_Terminated>\n";catch {setVerdiSimTerminated}}}
+
+ucli% trace variable ucliGUI::state wu stateVerdiChangeCB
+
+ucli% if {[catch {rename synopsys::restore verdiHack::restore} ]} {puts "0"}
+
+ucli% proc synopsys::restore {args} { verdiHack::restore $args; puts "\n<VERDI_RESTORE>\n"}
+
+ucli% if {[catch {rename quit verdiHack::quit} ]} {puts "0"}
+
+ucli% proc quit {args} { if {[string length $args] == 0} { verdiHack::quit; } elseif {([string equal "-h" $args] == 1)||([string equal "-he" $args] == 1)||([string equal "-hel" $args] == 1)||([string equal "-help" $args] == 1)} { puts "\n quit           # Exit the simulation.\n \[-noprompt\]        (Exit the simulation and Verdi.)\n"} elseif {([string equal "-n" $args] == 1)||([string equal "-no" $args] == 1)||([string equal "-nop" $args] == 1)||([string equal "-nopr" $args] == 1)||([string equal "-nopro" $args] == 1)||([string equal "-noprom" $args] == 1)||([string equal "-nopromp" $args] == 1)||([string equal "-noprompt" $args] == 1)} { puts "\nVERDI_EXIT_N\n" } else { verdiHack::quit $args; } }
+
+ucli% if {[catch {rename exit verdiHack::exit} ]} {puts "0"}
+
+ucli% proc exit {args} { if {[string length $args] == 0} { verdiHack::exit; } elseif {([string equal "-h" $args] == 1)||([string equal "-he" $args] == 1)||([string equal "-hel" $args] == 1)||([string equal "-help" $args] == 1)} { puts "\n exit           # Exit the simulation.\n \[-noprompt\]        (Exit the simulation and Verdi.)\n"} elseif {([string equal "-n" $args] == 1)||([string equal "-no" $args] == 1)||([string equal "-nop" $args] == 1)||([string equal "-nopr" $args] == 1)||([string equal "-nopro" $args] == 1)||([string equal "-noprom" $args] == 1)||([string equal "-nopromp" $args] == 1)||([string equal "-noprompt" $args] == 1)} { puts "\nVERDI_EXIT_N\n" } else { verdiHack::exit $args; } }
+
+ucli% proc checkpoint::beforeRecreate {} { sps_interactive }
+
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% save::getUserdefinedProcs
+::stateVerdiChangeCB ::LoadFSDBDumpCmd
+ucli% info procs
+ipi_get_str fsdbDumpMDAByFile fsdbDumpMDA echo fsdbDumpMemNow fsdbAutoSwitchDumpfile unknown sps_interactive auto_import stat fsdbDumpfile setenv auto_execok pkg_mkIndex stateVerdiChangeCB fsdbDumpSingle proc_body ipi_begin fsdbDumpoff getenv fsdbDumplimit fsdbDumpPattern ipi_handle ipi_get_prop fsdbDumpvarsByFile fsdbDumpMDAInScope lminus ipi_sim_get ls auto_load_index proc_args fsdbAddRuntimeSignal fsdbDumpSC print_message_info ridbDump fsdbDumpSVAoff fsdbSuppress fsdbDumpvars help fsdbDumpMDAOnChange ipi_control auto_qualify fsdbDumpMem tclPkgUnknown printenv ipi_handle_by_name helpdoc fsdbDumpMemInScope fsdbDumpFinish is_true fsdbDumpon sh fsdbQueryInfo LoadFSDBDumpCmd fsdbDumpPSL fsdbDumpSVA ipi_end wrapperSpecmanSn fsdbDumpSVAon fsdbDumpClassObjectByFile is_false auto_load fsdbDumpPSLon ipi_get_int64 fsdbSubstituteHier ipi_get_value ipi_iterate exit fsdbDumpMemInFile tclLog fsdbDumpflush get_unix_variable mem_debug ipi_scan fsdbDumpPSLoff fsdbDumpClassObject fsdbDumpvarsToFile set_unix_variable bgerror fsdbDumpStrength add_group fsdbSwitchDumpfile source add_wave ipi_set_prop unsetenv fsdbDumpvarsES readline fsdbDisplay ipi_handle_free set_group ipi_get quit define_proc_attributes tclPkgSetup fsdbDumpMDANow ipi_init_play_tcl fsdbDumpIO
+ucli% info commands
+ipi_get_str cchange subst fsdbDumpMDAByFile pwd cshow guiSource fsdbDumpMDA echo fsdbDumpMemNow fsdbAutoSwitchDumpfile ucliConnectToSharedMem unknown ucliIsScriptPauseByVerdi lrange sps_interactive auto_import setVerdiSimTerminated coverage case stat fsdbDumpfile break setenv dump auto_execok msglog linsert pkg_mkIndex dumplist catch stateVerdiChangeCB mpformat fsdbDumpSingle if join detach_sim halt proc_body abortScriptAfterDetachVerdi report_violations which lp_show ipi_begin pause dve_help fsdbDumpoff format getenv listing fsdbDumplimit package binary trace ctimeout onbreak after flush fsdbDumpPattern step restore ipi_handle power continue get_command_option_values force try foreach ipi_get_prop fsdbDumpvarsByFile lrepeat tailcall unset fsdbDumpMDAInScope lminus ipi_sim_get interp write_app_var lindex stack yield ls resetInterruptCount runAfterDetachVerdi eof saif list printvar create_command_group keysFileChangeCB virtual auto_load_index checkpoint proc_args finish fsdbAddRuntimeSignal cgettimeout sexpr lsearch fblocked fsdbDumpSC fanin lappend print_message_info proc cextract ridbDump writelist get_defined_commands cdump fsdbDumpSVAoff fsdbSuppress man set_sig_vas_in_waiting_input fconfigure fsdbDumpvars help fsdbDumpMDAOnChange ipi_control switch auto_qualify fsdbDumpMem mpexpr status tclPkgUnknown close printenv ipi_handle_by_name helpdoc thread lreverse set read fsdbDumpMemInScope initAttachableFile unalias fsdbDumpFinish setVerdiAttachable seek while set_cle_options is_true set_message_info writeKeyLog cbug fsdbDumpon find_forces yieldto sh start_verdi load fsdbQueryInfo memory sn vcsExecFuncInSharedObject cenable history puts gdb loadSharedObject tblog assertion resume _synopsys_cci_unalias socket tell open get_message_ids cadd exec pid stop LoadFSDBDumpCmd unloadSharedObject redirect fsdbDumpPSL throw fsdbDumpSVA ipi_end return ace wrapperSpecmanSn error fsdbDumpSVAon split fsdbDumpClassObjectByFile is_false array ucliAttachedByVerdi vbus get lreplace concat coroutine fcopy update parse_proc_arguments report_app_var run search setUcliVerdiStatus for append auto_load fsdbDumpPSLon ucliLaunchVerdi alias logFileChangeCB scan setUcliVerdiConnected apply abort set_current_command_mode release zlib chan loads _spw_define_proc_attributes ipi_get_int64 onerror print_suppressed_messages scope fileevent fsdbSubstituteHier inputFileChangeCB regexp resultTagsForVerdiCB set_app_var ipi_get_value cdelete upvar ipi_iterate save encoding onfail exit fsdbDumpMemInFile incr tclLog fsdbDumpflush get_message_info get_unix_variable show senv glob mem_debug ipi_scan GUIsource config fsdbDumpPSLoff time eval lassign fsdbDumpClassObject gets fsdbDumpvarsToFile tcl_exit set_unix_variable restart start change llength variable constraints xprop bgerror fsdbDumpStrength call clock info apropos add_group fsdbSwitchDumpfile ucliDetachVerdi source GUI_tcl_shell_puts global tcheck initreg add_wave report_timing ipi_set_prop next drivers cd file lmap unload namespace loaddl unsetenv get_app_var fsdbDumpvarsES suppress_message vwait dict readline fsdbDisplay uplevel ipi_handle_free date set_group lset rename ipi_get quit sh_list_key_bindings do unsuppress_message define_proc_attributes error_info tclPkgSetup expr printPromptStr regsub onCheckpointCB csave fsdbDumpMDANow dtl_load ipi_init_play_tcl lsort fsdbDumpIO doFileChangeCB _synopsys_cci_alias writeHistoryLog cdisable string
+ucli% set ucliCore::resultTagsForVerdi [list <?special_verdi_begin?> <?special_verdi_end?>]
+<?special_verdi_begin?> <?special_verdi_end?>
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% if {[catch {get uvm_pkg.UVM_VERSION_STRING} result] == 0} {puts $result}
+
+ucli% senv hasTB
+0
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% fsdbDumpflush 
+*Verdi* : Flush all FSDB Files at 0 ps.
+
+ucli% senv
+activeDomain: Verilog
+activeFile: 
+activeFrame: 
+activeLine: 0
+activeScope: BADA_nbc
+activeThread: 
+endCol: 0
+file: 
+frame: 
+fsdbFilename: 
+hasTB: 0
+inputFilename: 
+keyFilename: ucli.key
+line: 0
+logFilename: /home/isc/projects/bit-slice/hw/sim/verdiLog/sim.log
+macroIndex: -1
+macroOffset: -1
+pid: 1941324
+scope: BADA_nbc
+startCol: 0
+state: stopped
+thread: 
+time: 0
+timePrecision: 1 ps
+vcdFilename: 
+vpdFilename:
+ucli% puts $::ucliCore::cbug_active
+0
+
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% checkpoint -list -all
+There are no checkpoints present.
+ucli% stop
+No stop points are set
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% finish; quit
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 0 ps
+CPU Time:      0.070 seconds;       Data structure size:   0.0Mb
+Sat Dec  9 12:48:56 2023
+
+<VERDI_Terminated>
+

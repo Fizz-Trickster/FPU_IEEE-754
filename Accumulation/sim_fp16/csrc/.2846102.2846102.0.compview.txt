@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1701790936.322192281, "rt":0.49, "ut":0.29, "st":0.18}}
+{"vcselab":{"timestamp_begin":1701790936.913592283, "rt":0.36, "ut":0.23, "st":0.09}}
+{"link":{"timestamp_begin":1701790937.350509680, "rt":0.28, "ut":0.16, "st":0.10}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1701790935.785012061}
+{"VCS_COMP_START_TIME": 1701790935.785012061}
+{"VCS_COMP_END_TIME": 1701790938.158190845}
+{"VCS_USER_OPTIONS": "-full64 -R -kdb -sverilog -debug_access ../../rtl/BADA_mac.v -f rtl.f"}
+{"vcs1": {"peak_mem": 530724}}
+{"vcselab": {"peak_mem": 241052}}

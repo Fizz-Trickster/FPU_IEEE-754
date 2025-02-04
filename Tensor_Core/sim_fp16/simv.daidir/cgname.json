@@ -1,0 +1,38 @@
+{
+    "std": [
+        "std",
+        "reYIK",
+        "module",
+        3
+    ],
+    "tensor_core_mma_0000": [
+        "tensor_core_mma_0000",
+        "Vb5jh",
+        "module",
+        18
+    ],
+    "fp16_mul": [
+        "fp16_mul",
+        "CKgjD",
+        "module",
+        16
+    ],
+    "fp16_add": [
+        "fp16_add",
+        "hTgY1",
+        "module",
+        15
+    ],
+    "tb_tensor_core": [
+        "tb_tensor_core",
+        "B5mtc",
+        "module",
+        17
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module",
+        5
+    ]
+}

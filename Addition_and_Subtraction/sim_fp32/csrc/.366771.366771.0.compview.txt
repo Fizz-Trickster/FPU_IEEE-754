@@ -1,0 +1,7 @@
+Command exited with non-zero status 255
+{"vcs1":{"timestamp_begin":1701932197.007382361, "rt":21.98, "ut":24.33, "st":1.16}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1701932196.515550897}
+{"VCS_COMP_START_TIME": 1701932196.515550897}
+{"VCS_COMP_END_TIME": 1701932219.103659487}
+{"VCS_USER_OPTIONS": "-full64 -R -kdb -debug_access ../../rtl/BADA_nbc.v"}
+{"vcs1": {"peak_mem": 973836}}

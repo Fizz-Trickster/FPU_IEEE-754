@@ -1,0 +1,7 @@
+Command exited with non-zero status 255
+{"vcs1":{"timestamp_begin":1735796747.467720930, "rt":0.13, "ut":0.06, "st":0.05}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1735796747.027681998}
+{"VCS_COMP_START_TIME": 1735796747.027681998}
+{"VCS_COMP_END_TIME": 1735796747.672406147}
+{"VCS_USER_OPTIONS": "-R -full64 -debug_access+all -kdb -f rtl.f -l vcs.log tb/tb_tensor_core.v"}
+{"vcs1": {"peak_mem": 536292}}

@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1701964882.339460370, "rt":0.41, "ut":0.19, "st":0.18}}
+{"vcselab":{"timestamp_begin":1701964882.855620249, "rt":0.34, "ut":0.22, "st":0.08}}
+{"link":{"timestamp_begin":1701964883.272392131, "rt":0.25, "ut":0.14, "st":0.08}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1701964881.847204591}
+{"VCS_COMP_START_TIME": 1701964881.847204591}
+{"VCS_COMP_END_TIME": 1701964884.068075321}
+{"VCS_USER_OPTIONS": "-full64 -R -kdb -debug_access ../../rtl/BADA_nbc.v"}
+{"vcs1": {"peak_mem": 530712}}
+{"vcselab": {"peak_mem": 249144}}

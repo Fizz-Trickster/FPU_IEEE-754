@@ -1,0 +1,95 @@
+@verdi rc file Version 1.0
+[General]
+saveDB = TRUE
+relativePath = FALSE
+saveSingleView = FALSE
+saveNWaveWinId = 
+VerdiVersion = Verdi_U-2023.03-SP2
+[KeyNote]
+Line1 = Automatic Backup 0
+Line2 = Save Open Database Information: Yes
+Line3 = Path Option: Absolute Paths
+Line4 = Windows Option: All Windows
+[OneSearch]
+isExisted = TRUE
+[TestBench]
+ConstrViewShow = 0
+InherViewShow = 0
+FSDBMsgShow = 0
+AnnotationShow = 0
+Console = FALSE
+powerDumped = 0
+[fusa]
+fdb_server = 
+fdb_proj = 
+fdb_campaign = 
+fdb_tool = 
+[hb]
+postSimFile = /home/ysyoon/PROJECT/FPU_IEEE-754/Tensor_Core/sim_fp16/waveform.fsdb
+syncTime = 0
+viewport = 0 162 3440 1377 0 0 230 898
+activeNode = "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC[0].colC[0].u_tensor_core_mma"
+activeScope = "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC[0].colC[0].u_tensor_core_mma"
+activeFile = "../tensor_core_mma.v"
+interactiveMode = False
+viewType = Source
+simulatorMode = False
+sourceBeginLine = 0
+baMode = False
+srcLineNum = True
+AutoWrap = True
+IdentifyFalseLogic = False
+syncSignal = False
+traceMode = Hierarchical
+showTraceInSchema = True
+paMode = False
+funcMode = False
+powerAwareAnnot = True
+safetyAwareAnnot = True
+amsAnnot = True
+DnDtraceCrossHierOnly = True
+leadingZero = False
+signalPane = False
+SourceVerticalScrollLines = 5
+Scope1 = "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC[0].colC[0].u_tensor_core_mma"
+Scope2 = "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC[0].colC[0].u_tensor_core_mma.u_fp16_mul[3]"
+multipleSelection = 1 99 8 0 0
+sdfCheckUndef = FALSE
+simFlow = FALSE
+[hb.design]
+importCmd = "-dbdir" "simv.daidir" 
+invokeDir = /home/ysyoon/PROJECT/FPU_IEEE-754/Tensor_Core/sim_fp16
+[hb.sourceTab.1]
+scope = tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC[0].colC[0].u_tensor_core_mma
+File = /home/ysyoon/PROJECT/FPU_IEEE-754/Tensor_Core/tensor_core_mma.v
+Line = 1
+[nMemoryManager]
+WaveformFile = /home/ysyoon/PROJECT/FPU_IEEE-754/Tensor_Core/sim_fp16/waveform.fsdb
+UserActionNum = 0
+nMemWindowNum = 0
+[wave.0]
+viewPort = 0 25 3440 594 358 65
+primaryWindow = TRUE
+SessionFile = /home/ysyoon/PROJECT/FPU_IEEE-754/Tensor_Core/sim_fp16/verdiLog/novas_autosave.ses.wave.0
+displayGrid = FALSE
+hierarchicalName = FALSE
+snap = TRUE
+displayLeadingZeros = FALSE
+fixDelta = FALSE
+displayCursorMarker = FALSE
+autoUpdate = FALSE
+highlightGlitchs = FALSE
+waveformSyncCursorMarker = FALSE
+waveformSyncHorizontalRange = FALSE
+waveformSyncVerticalscroll = FALSE
+displayErrors = TRUE
+displayMsgSymbols = TRUE
+showMsgDescriptions = TRUE
+autoFit = FALSE
+displayDeltaY = FALSE
+centerCursor = FALSE
+fsaRegMask = TRUE
+fsaCoreMask = TRUE
+fsaSfsmMask = TRUE
+fsaEcrMask = TRUE
+tPropMask = TRUE

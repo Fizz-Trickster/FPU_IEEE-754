@@ -1,0 +1,17 @@
+Invoking simulator...
+
+./simv -sml=verdi +UVM_VERDI_TRACE=UVM_AWARE +fsdb+gate=off -ucli2Proc -ucli
+debImport "-i" "-simflow" "-dbdir" "./simv.daidir"
+*Verdi* Loading libsscore_vcs202303.so
+
+*Verdi* : Enable RPC Server(1723777)
+
+srcTBInvokeSim
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version U-2023.03-SP2_Full64; Runtime version U-2023.03-SP2_Full64;  Dec  9 02:46 2023
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 0 ps
+CPU Time:      0.070 seconds;       Data structure size:   0.0Mb
+Sat Dec  9 02:49:26 2023
+debExit

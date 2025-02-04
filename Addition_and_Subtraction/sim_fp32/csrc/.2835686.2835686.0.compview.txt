@@ -1,0 +1,7 @@
+Command exited with non-zero status 255
+{"vcs1":{"timestamp_begin":1701790317.315081236, "rt":0.31, "ut":0.16, "st":0.13}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1701790316.764572091}
+{"VCS_COMP_START_TIME": 1701790316.764572091}
+{"VCS_COMP_END_TIME": 1701790317.751756420}
+{"VCS_USER_OPTIONS": "-full64 -R -kdb -sverilog -debug_access ../../rtl/BADA_mac.v -f rtl.f"}
+{"vcs1": {"peak_mem": 530800}}

@@ -1,0 +1,141 @@
+verdiSetActWin -dock widgetDock_<Decl._Tree>
+simSetSimulator "-vcssv" -exec "simv" -args "-a vcs.log"
+debImport "-dbdir" "simv.daidir"
+debLoadSimResult \
+           /home/ysyoon/nfs/PROJECT/Floating-Point-ALU-in-Verilog/Addition_and_Subtraction/sim_fp16/waveform.fsdb
+wvCreateWindow
+verdiWindowResize -win $_Verdi_1 "1810" "610" "900" "700"
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcHBSelect "tb_fp_add.u_fp16_add" -win $_nTrace1
+srcSetScope "tb_fp_add.u_fp16_add" -delim "." -win $_nTrace1
+srcHBSelect "tb_fp_add.u_fp16_add" -win $_nTrace1
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+verdiSetActWin -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "a_operand" -line 18 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "b_operand" -line 19 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 1 )} 
+verdiSetActWin -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 1 2 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 1 2 )} 
+wvSetRadix -win $_nWave2 -format Bin
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "result" -line 115 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+verdiSetActWin -win $_nWave2
+wvSelectGroup -win $_nWave2 {G2}
+wvSetPosition -win $_nWave2 {("G2" 0)}
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "exp_max" -line 67 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "exp_min" -line 68 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "significand_max" -line 71 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "significand_min" -line 72 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "exp_diff" -line 75 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "significand_max_padded" -line 78 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "significand_min_padded" -line 79 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "significand_min_add_sub" -line 82 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "significand_add" -line 90 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -win $_nWave2
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G2" 1 )} 
+wvSelectSignal -win $_nWave2 {( "G2" 1 2 )} 
+wvSelectSignal -win $_nWave2 {( "G2" 1 2 )} 
+wvSetRadix -win $_nWave2 -format Bin
+wvSelectSignal -win $_nWave2 {( "G2" 1 2 )} 
+wvSetRadix -win $_nWave2 -format UDec
+wvSelectSignal -win $_nWave2 {( "G2" 3 )} 
+wvSelectSignal -win $_nWave2 {( "G2" 3 4 )} 
+wvSelectSignal -win $_nWave2 {( "G2" 3 4 )} 
+wvSetRadix -win $_nWave2 -format Bin
+wvSelectSignal -win $_nWave2 {( "G2" 5 )} 
+wvCut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G3" 0)}
+wvSetPosition -win $_nWave2 {("G2" 8)}
+wvSelectSignal -win $_nWave2 {( "G2" 5 )} 
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "significand_min_add_sub" -line 82 -pos 1 -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+wvSetPosition -win $_nWave2 {("G2" 7)}
+wvSetPosition -win $_nWave2 {("G2" 5)}
+wvSetPosition -win $_nWave2 {("G2" 4)}
+verdiSetActWin -win $_nWave2
+wvSetPosition -win $_nWave2 {("G2" 5)}
+wvSetPosition -win $_nWave2 {("G2" 6)}
+wvSetPosition -win $_nWave2 {("G2" 5)}
+wvSetPosition -win $_nWave2 {("G2" 4)}
+wvMoveSelected -win $_nWave2
+wvSetPosition -win $_nWave2 {("G2" 4)}
+wvSetPosition -win $_nWave2 {("G2" 5)}
+wvSelectSignal -win $_nWave2 {( "G2" 4 )} 
+wvSelectSignal -win $_nWave2 {( "G2" 5 )} 
+wvSelectSignal -win $_nWave2 {( "G2" 5 )} 
+wvSetRadix -win $_nWave2 -format Bin

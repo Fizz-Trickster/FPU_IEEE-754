@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1735798006.435188298, "rt":0.37, "ut":0.18, "st":0.15}}
+{"vcselab":{"timestamp_begin":1735798006.884347963, "rt":0.30, "ut":0.18, "st":0.08}}
+{"link":{"timestamp_begin":1735798007.249686036, "rt":0.24, "ut":0.14, "st":0.08}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1735798005.985430987}
+{"VCS_COMP_START_TIME": 1735798005.985430987}
+{"VCS_COMP_END_TIME": 1735798007.975279122}
+{"VCS_USER_OPTIONS": "-R -full64 -debug_access+all -kdb -f rtl.f -l vcs.log tb/tb_tensor_core.v"}
+{"vcs1": {"peak_mem": 536284}}
+{"vcselab": {"peak_mem": 241088}}

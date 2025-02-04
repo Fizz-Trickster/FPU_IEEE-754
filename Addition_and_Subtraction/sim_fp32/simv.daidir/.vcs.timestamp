@@ -1,0 +1,140 @@
+0
+36
++itf+/opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/lib/vcsdp_lite.tab
++vcsd1
++vpi
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/opt/synopsys/vcs/vcs/U-2023.03-SP2/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -rdynamic
+-Mobjects= /opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/lib/libvirsim.so /opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/lib/liberrorinf.so /opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/lib/libsnpsmalloc.so /opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/lib/libvfs.so
+-Mout=simv
+-Msaverestoreobj=/opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=/opt/synopsys/verdi/verdi/U-2023.03-SP2/share/PLI/VCS/LINUX64/pli.a -ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/opt/synopsys/vcs/vcs/U-2023.03-SP2/include
+-Mxllcflags=
+-P
+-Xufe=2steps
+-Xvcs_run_simv=1
+-debug_access+all
+-f rtl.f
+-fsdb
+-full64
+-gen_obj
+-kdb
+-l
+-picarchive
+/opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/bin/vcs1
+vcs.log
+/opt/synopsys/verdi/verdi/U-2023.03-SP2/share/PLI/VCS/LINUX64/verdi.tab
+rtl.f
+tb/tb_fp_add.v
+85
+which_declare=declare -f
+_CE_M=
+_CE_CONDA=
+XDG_SESSION_ID=1496
+XDG_RUNTIME_DIR=/run/user/1041
+WV_HOME=/opt/synopsys/customwaveview/wv/U-2023.03-SP2
+VMR_MODE_FLAG=64
+VERDI_HOME=/opt/synopsys/verdi/verdi/U-2023.03-SP2
+VCS_PATHMAP_PRELOAD_DONE=1
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_LOG_FILE=vcs.log
+VCS_HOME=/opt/synopsys/vcs/vcs/U-2023.03-SP2
+VCS_EXEC_DONE=1
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH=linux64
+UNAME=/bin/uname
+TOOL_HOME=/opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64
+TMUX_PANE=%5
+TMUX=/tmp/tmux-1041/default,1260844,0
+TMAX_HOME=/opt/synopsys/TestMAX/txs/U-2022.12-SP6
+TMAX1_HOME=/opt/synopsys/TestMAX1/ufe_optional_spyglass/V-2023.12-SP2-3/SPYGLASS_HOME/bin
+SYNOPSYS_LC_ROOT=/opt/synopsys/LibraryCompiler/lc/U-2022.12-SP6
+SYNOPSYS_KEY_FILE=27020@165.132.110.53:27020@165.132.112.192
+SYNOPSYS_HOME=/opt/synopsys
+STARRC_HOME=/opt/synopsys/starrc/U-2022.12-SP3
+SSH_TTY=/dev/pts/27
+SSH_CONNECTION=165.132.146.216 10706 165.132.110.53 22
+SSH_CLIENT=165.132.146.216 10706 22
+SPYGLASS_HOME=/opt/synopsys/spyglass/ufe_optional_spyglass-vcs/V-2023.12-SP2-1/SPYGLASS_HOME
+SPECTRE_HOME=/opt/cadence/SPECTRE201
+SNPS_VERDI_INTERNAL_LP_XML_NEW_FLOW=1
+SNPS_VCS_PYTHON3=/opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/bin/Python-3.6.1/bin/python3
+SNPS_VCS_CLANG_PATH=/opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/clang
+SNPS_INTERNAL_VCS_LINUX_OS=linux
+SELINUX_USE_CURRENT_RANGE=
+SELINUX_ROLE_REQUESTED=
+SELINUX_LEVEL_REQUESTED=
+SC_HOME=/opt/synopsys/SynopsysContainer/snps_container/1.8
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+QSIM_HOME=/opt/siemens/questasim
+PT_HOME=/opt/synopsys/prime/U-2022.12-SP4
+PRIMESIM_HOME=/opt/synopsys/primesim/U-2023.03-SP1
+OVA_UUM=0
+OA_UNSUPPORTED_PLAT=linux_rhel60
+MODULES_RUN_QUARANTINE=LD_LIBRARY_PATH LD_PRELOAD
+MODULES_CMD=/usr/share/Modules/libexec/modulecmd.tcl
+MODULESHOME=/usr/share/Modules
+MODULEPATH_modshare=/usr/share/Modules/modulefiles:2:/etc/modulefiles:2:/usr/share/modulefiles:2
+MODULEPATH=/etc/scl/modulefiles:/etc/scl/modulefiles:/usr/share/Modules/modulefiles:/etc/modulefiles:/usr/share/modulefiles
+MGLS_LICENSE_FILE=1717@143.248.230.188:1717@143.248.230.169:1717@143.248.230.189:29000@165.132.141.35
+MGC_HOME=/opt/siemens/calibre/aok_cal_2023.3_14.8
+MENTOR_HOME=/opt/siemens
+LOADEDMODULES=
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LC_HOME=/opt/synopsys/LibraryCompiler/lc/U-2022.12-SP6
+LC_ALL=C
+INNVS_HOME=/opt/cadence/INNOVUS211
+IC_HOME=/opt/cadence/IC618
+ICV_HOME=/opt/synopsys/ICvalidator/icvalidator/U-2022.12-SP3-6
+ICC_HOME=/opt/synopsys/icc/U-2022.12-SP4
+ICC2_HOME=/opt/synopsys/icc2/U-2022.12-SP4
+HSPICE_HOME=/opt/synopsys/hspice/hspice/U-2023.03-SP2/hspice
+HISTCONTROL=ignoredups
+GENUS_HOME=/opt/cadence/GENUS201
+FC_HOME=/opt/synopsys/fusioncompiler/U-2022.12-SP4
+DEBUGINFOD_URLS=https://debuginfod.centos.org/ 
+DC_HOME=/opt/synopsys/syn/U-2022.12-SP4
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1041/bus
+CUSTCOMP_HOME=/opt/synopsys/customcompiler/V-2023.12-SP2-2
+CONDA_SHLVL=1
+CONDA_PYTHON_EXE=/home/ysyoon/miniconda3/bin/python
+CONDA_PROMPT_MODIFIER=(base) 
+CONDA_PREFIX=/home/ysyoon/miniconda3
+CONDA_EXE=/home/ysyoon/miniconda3/bin/conda
+CONDA_DEFAULT_ENV=base
+CDS_HOME=/opt/cadence
+BASH_FUNC_which%%=() {  ( alias;_ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@_}
+BASH_FUNC_switchml%%=() {  typeset swfound=1;_ if [ "${MODULES_USE_COMPAT_VERSION:-0}" = '1' ]; then_ typeset swname='main';_ if [ -e /usr/share/Modules/libexec/modulecmd.tcl ]; then_ typeset swfound=0;_ unset MODULES_USE_COMPAT_VERSION;_ fi;_ else_ typeset swname='compatibility';_ if [ -e /usr/share/Modules/libexec/modulecmd-compat ]; then_ typeset swfound=0;_ MODULES_USE_COMPAT_VERSION=1;_ export MODULES_USE_COMPAT_VERSION;_ fi;_ fi;_ if [ $swfound -eq 0 ]; then_ echo "Switching to Modules $swname version";_ source /usr/share/Modules/init/bash;_ else_ echo "Cannot switch to Modules $swname version, command not found";_ return 1;_ fi_}
+BASH_FUNC_scl%%=() {  if [ "$1" = "load" -o "$1" = "unload" ]; then_ eval "module $@";_ else_ /usr/bin/scl "$@";_ fi_}
+BASH_FUNC_module%%=() {  _module_raw "$@" 2>&1_}
+BASH_FUNC_ml%%=() {  module ml "$@"_}
+BASH_FUNC__module_raw%%=() {  unset _mlshdbg;_ if [ "${MODULES_SILENT_SHELL_DEBUG:-0}" = '1' ]; then_ case "$-" in _ *v*x*)_ set +vx;_ _mlshdbg='vx'_ ;;_ *v*)_ set +v;_ _mlshdbg='v'_ ;;_ *x*)_ set +x;_ _mlshdbg='x'_ ;;_ *)_ _mlshdbg=''_ ;;_ esac;_ fi;_ unset _mlre _mlIFS;_ if [ -n "${IFS+x}" ]; then_ _mlIFS=$IFS;_ fi;_ IFS=' ';_ for _mlv in ${MODULES_RUN_QUARANTINE:-};_ do_ if [ "${_mlv}" = "${_mlv##*[!A-Za-z0-9_]}" -a "${_mlv}" = "${_mlv#[0-9]}" ]; then_ if [ -n "`eval 'echo ${'$_mlv'+x}'`" ]; then_ _mlre="${_mlre:-}${_mlv}_modquar='`eval 'echo ${'$_mlv'}'`' ";_ fi;_ _mlrv="MODULES_RUNENV_${_mlv}";_ _mlre="${_mlre:-}${_mlv}='`eval 'echo ${'$_mlrv':-}'`' ";_ fi;_ done;_ if [ -n "${_mlre:-}" ]; then_ eval `eval ${_mlre} /usr/bin/tclsh /usr/share/Modules/libexec/modulecmd.tcl bash '"$@"'`;_ else_ eval `/usr/bin/tclsh /usr/share/Modules/libexec/modulecmd.tcl bash "$@"`;_ fi;_ _mlstatus=$?;_ if [ -n "${_mlIFS+x}" ]; then_ IFS=$_mlIFS;_ else_ unset IFS;_ fi;_ unset _mlre _mlv _mlrv _mlIFS;_ if [ -n "${_mlshdbg:-}" ]; then_ set -$_mlshdbg;_ fi;_ unset _mlshdbg;_ return $_mlstatus_}
+0
+0
+6
+1734418439 tb/tb_fp_add.v
+1733720075 ../Priority_Encoder.v
+1733895174 ../fp32_add.v
+1733887188 rtl.f
+1693225683 /opt/synopsys/verdi/verdi/U-2023.03-SP2/share/PLI/VCS/LINUX64/verdi.tab
+1693040877 /opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/lib/vcsdp_lite.tab
+4
+1693043931 /opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/lib/libvirsim.so
+1693042805 /opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/lib/liberrorinf.so
+1693042720 /opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/lib/libsnpsmalloc.so
+1693042802 /opt/synopsys/vcs/vcs/U-2023.03-SP2/linux64/lib/libvfs.so
+1734418446 simv.daidir
+-1 partitionlib

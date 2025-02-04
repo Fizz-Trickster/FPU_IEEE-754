@@ -1,0 +1,7 @@
+../../Accumulation/kulisch_acc_fp16.v
+../../Addition_and_Subtraction/fp16_add.v
+../../Multiplication/fp16_mul.v
+../tensor_core_gemm.v
+../tensor_core_mma.v
+../tensor_core_top.v
+tb/tb_tensor_core.v

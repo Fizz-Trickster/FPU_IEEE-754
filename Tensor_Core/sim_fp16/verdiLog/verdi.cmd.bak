@@ -1,0 +1,405 @@
+verdiSetActWin -dock widgetDock_<Decl._Tree>
+simSetSimulator "-vcssv" -exec "simv" -args "-a vcs.log"
+debImport "-dbdir" "simv.daidir"
+debLoadSimResult \
+           /home/ysyoon/PROJECT/FPU_IEEE-754/Tensor_Core/sim_fp16/waveform.fsdb
+wvCreateWindow
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+debReload
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "a_operand" -line 33 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+verdiSetActWin -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "data_x" -line 22 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 2 )} 
+wvExpandBus -win $_nWave2
+verdiSetActWin -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 3 )} 
+wvSetPosition -win $_nWave2 {("G1" 3)}
+wvExpandBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 10)}
+wvSelectSignal -win $_nWave2 {( "G1" 8 )} 
+wvSetPosition -win $_nWave2 {("G1" 8)}
+wvExpandBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 14)}
+wvSelectSignal -win $_nWave2 {( "G1" 12 )} 
+wvSetPosition -win $_nWave2 {("G1" 12)}
+wvExpandBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 30)}
+wvSelectSignal -win $_nWave2 {( "G1" 13 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 13 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 12 )} 
+wvSetPosition -win $_nWave2 {("G1" 12)}
+wvCollapseBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 12)}
+wvSetPosition -win $_nWave2 {("G1" 14)}
+wvSelectSignal -win $_nWave2 {( "G1" 13 )} 
+wvSetPosition -win $_nWave2 {("G1" 13)}
+wvExpandBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 18)}
+wvSelectSignal -win $_nWave2 {( "G1" 13 )} 
+wvSetPosition -win $_nWave2 {("G1" 13)}
+wvCollapseBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 13)}
+wvSetPosition -win $_nWave2 {("G1" 14)}
+wvSelectSignal -win $_nWave2 {( "G1" 14 )} 
+wvExpandBus -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 13 )} 
+wvSetPosition -win $_nWave2 {("G1" 13)}
+wvExpandBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 22)}
+debReload
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcHBSelect "tb_tensor_core.u_tensor_core_top" -win $_nTrace1
+srcSetScope "tb_tensor_core.u_tensor_core_top" -delim "." -win $_nTrace1
+debReload
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "A_in" -line 8 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "B_in" -line 9 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcHBSelect "tb_tensor_core" -win $_nTrace1
+srcSetScope "tb_tensor_core" -delim "." -win $_nTrace1
+srcHBSelect "tb_tensor_core" -win $_nTrace1
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "a_operand" -line 33 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 0)}
+verdiSetActWin -win $_nWave2
+srcHBSelect "tb_tensor_core" -win $_nTrace1
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "clk" -line 9 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "rstn" -line 10 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -win $_nWave2
+wvZoom -win $_nWave2 12969.569132 34720.617363
+wvZoomOut -win $_nWave2
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+debReload
+wvSelectGroup -win $_nWave2 {G3}
+wvSelectSignal -win $_nWave2 {( "G2" 3 )} 
+wvCut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 2)}
+srcHBSelect "tb_tensor_core.u_tensor_core_top" -win $_nTrace1
+srcSetScope "tb_tensor_core.u_tensor_core_top" -delim "." -win $_nTrace1
+srcHBSelect "tb_tensor_core.u_tensor_core_top" -win $_nTrace1
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcHBSelect "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm" -win $_nTrace1
+srcSetScope "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm" -delim "." -win \
+           $_nTrace1
+srcHBSelect "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm" -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "A_in   \[r\]" -line 33 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "B_trans\[c\]" -line 34 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 2 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 3 )} 
+wvCut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 4)}
+wvSetPosition -win $_nWave2 {("G1" 3)}
+wvSelectSignal -win $_nWave2 {( "G1" 3 )} 
+wvCut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 3)}
+wvSetPosition -win $_nWave2 {("G1" 2)}
+srcHBSelect "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\]" -win \
+           $_nTrace1
+srcSetScope "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\]" \
+           -delim "." -win $_nTrace1
+srcHBSelect "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\]" -win \
+           $_nTrace1
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcHBSelect \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\]" \
+           -win $_nTrace1
+srcSetScope \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\]" \
+           -delim "." -win $_nTrace1
+srcHBSelect \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\]" \
+           -win $_nTrace1
+srcHBSelect \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\].u_tensor_core_mma" \
+           -win $_nTrace1
+srcSetScope \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\].u_tensor_core_mma" \
+           -delim "." -win $_nTrace1
+srcHBSelect \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\].u_tensor_core_mma" \
+           -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "A_in" -line 9 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "B_in" -line 10 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 3 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 3 )} 
+verdiSetActWin -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 3 4 )} 
+wvSetPosition -win $_nWave2 {("G2" 0)}
+wvSetPosition -win $_nWave2 {("G2" 2)}
+wvSetPosition -win $_nWave2 {("G3" 0)}
+wvMoveSelected -win $_nWave2
+wvSetPosition -win $_nWave2 {("G3" 2)}
+wvSetPosition -win $_nWave2 {("G3" 2)}
+wvSelectSignal -win $_nWave2 {( "G3" 1 )} 
+wvSetPosition -win $_nWave2 {("G3" 1)}
+wvExpandBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G3" 6)}
+wvSelectSignal -win $_nWave2 {( "G3" 1 )} 
+wvSetPosition -win $_nWave2 {("G3" 1)}
+wvCollapseBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G3" 1)}
+wvSetPosition -win $_nWave2 {("G3" 2)}
+srcHBSelect "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm" -win $_nTrace1
+srcSetScope "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm" -delim "." -win \
+           $_nTrace1
+srcHBSelect "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm" -win $_nTrace1
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+wvSetPosition -win $_nWave2 {("G4" 0)}
+verdiSetActWin -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "A_in   \[r\]" -line 33 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "A_in" -line 9 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G4" 1 )} 
+wvCut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G5" 0)}
+wvSetPosition -win $_nWave2 {("G4" 1)}
+verdiSetActWin -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G4" 1 )} 
+wvCut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G5" 0)}
+wvSetPosition -win $_nWave2 {("G4" 0)}
+srcHBSelect "tb_tensor_core.u_tensor_core_top" -win $_nTrace1
+srcSetScope "tb_tensor_core.u_tensor_core_top" -delim "." -win $_nTrace1
+srcHBSelect "tb_tensor_core.u_tensor_core_top" -win $_nTrace1
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "A_reg" -line 24 -pos 1 -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+debReload
+verdiSetActWin -win $_nWave2
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+srcHBSelect "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm" -win $_nTrace1
+srcSetScope "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm" -delim "." -win \
+           $_nTrace1
+srcHBSelect "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm" -win $_nTrace1
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcHBSelect "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\]" -win \
+           $_nTrace1
+srcSetScope "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\]" \
+           -delim "." -win $_nTrace1
+srcHBSelect "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\]" -win \
+           $_nTrace1
+srcHBSelect \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\]" \
+           -win $_nTrace1
+srcSetScope \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\]" \
+           -delim "." -win $_nTrace1
+srcHBSelect \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\]" \
+           -win $_nTrace1
+srcHBSelect \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\].u_tensor_core_mma" \
+           -win $_nTrace1
+srcSetScope \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\].u_tensor_core_mma" \
+           -delim "." -win $_nTrace1
+srcHBSelect \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\].u_tensor_core_mma" \
+           -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "A_in" -line 9 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "B_in" -line 10 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -win $_nWave2
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+debReload
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 7 )} 
+debReload
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "A_in" -line 9 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "B_in" -line 10 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+debReload
+verdiSetActWin -win $_nWave2
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+srcHBSelect "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\]" -win \
+           $_nTrace1
+srcSetScope "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\]" \
+           -delim "." -win $_nTrace1
+srcHBSelect "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\]" -win \
+           $_nTrace1
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcDeselectAll -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "B_trans" -line 23 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+debReload
+verdiSetActWin -win $_nWave2
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+srcHBSelect \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\]" \
+           -win $_nTrace1
+srcSetScope \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\]" \
+           -delim "." -win $_nTrace1
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcHBSelect \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\]" \
+           -win $_nTrace1
+srcHBSelect \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\].u_tensor_core_mma" \
+           -win $_nTrace1
+srcSetScope \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\].u_tensor_core_mma" \
+           -delim "." -win $_nTrace1
+srcHBSelect \
+           "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm.rowC\[0\].colC\[0\].u_tensor_core_mma" \
+           -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "C_out" -line 35 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+verdiSetActWin -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G6" 1 )} 
+wvSetRadix -win $_nWave2 -format UDec
+debReload
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G6" 1 )} 
+wvCut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G7" 0)}
+wvSetPosition -win $_nWave2 {("G6" 0)}
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "C_out" -line 12 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "C_temp" -line 25 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -win $_nWave2
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+srcHBSelect "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm" -win $_nTrace1
+srcSetScope "tb_tensor_core.u_tensor_core_top.u_tensor_core_gemm" -delim "." -win \
+           $_nTrace1
+debReload
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "C_out" -line 14 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+verdiSetActWin -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G6" 3 )} 
+wvSetRadix -win $_nWave2 -format UDec
