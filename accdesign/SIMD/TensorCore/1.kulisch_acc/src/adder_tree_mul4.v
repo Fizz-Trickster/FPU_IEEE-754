@@ -1,5 +1,5 @@
 
-module kulisch_acc_fp16 #(
+module adder_tree_mul4 #(
   parameter DWIDTH = 16,
   parameter EWIDTH = 5,
   parameter MWIDTH = 10,
@@ -11,11 +11,11 @@ module kulisch_acc_fp16 #(
     input                    clk,
     input                    rst_n,
 
-    input  [DWIDTH-1:0]      i_fp_data,    // input fp16 data
-    input  [AWIDTH-1:0]      i_init_acc,   // initial accumulation value
-    input                    i_init,       // initial accumulation
+    input  [0:3][DWIDTH-1:0] i_sum_mul,    // input fp16 data
+    input  [0:3][DWIDTH-1:0] i_carry_mul,    // input fp16 data
 
-    output reg  [AWIDTH-1:0] o_kulisch_acc // accumulated value
+    output [DWIDTH-1:0]      o_sum,   
+    output [DWIDTH-1:0]      o_carry   
 );
 
 // Range
@@ -52,6 +52,17 @@ module kulisch_acc_fp16 #(
 // 1. Floating Point to Fixed Point
 // 2. Fixed Point Accumulation : Kulisch Accumulation
 //------------------------------------------------
+
+NV_DW02_tree #(
+    .num_inputs (8),
+    .input_width (DWIDTH)
+) u_NV_DW02_tree (
+    .INPUT (i_sum_mul),
+    .OUT0 (o_sum),
+    .OUT1 (o_carry)
+);
+
+
 wire [AWIDTH-1:0] fixed_data = f2i(i_fp_data);
 
 

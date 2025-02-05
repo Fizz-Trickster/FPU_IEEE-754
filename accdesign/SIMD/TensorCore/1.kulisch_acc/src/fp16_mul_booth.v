@@ -7,19 +7,23 @@ module fp16_mul_booth #(
   parameter DWIDTH = 16,
   parameter EWIDTH = 5,
   parameter MWIDTH = 10,
-	parameter BIAS   = (1 << (EWIDTH-1)) - 1		// 15 = 2^(5-1)-1
+  parameter BIAS   = (1 << (EWIDTH-1)) - 1		// 15 = 2^(5-1)-1
   )(
-		input   [DWIDTH-1:0]  a_operand,
-		input   [DWIDTH-1:0]  b_operand,
-		output  [DWIDTH-1:0]  result,
-		output                Exception,
-		output                Overflow,
-		output                Underflow
-	);
+    input   [1*DWIDTH-1:0]  a_operand,
+    input   [1*DWIDTH-1:0]  b_operand,
 
-wire        				sign;
-wire        				normalized;
-wire        				zero;
+    output  [2*MWIDTH+1:0]  o_sum,
+    output  [2*MWIDTH+1:0]  o_carry,
+    output  [  EWIDTH-1:0]  o_exponent,
+
+    output                  exception,
+    output                  overflow,
+    output                  underflow
+  );
+
+wire                sign;
+wire                normalized;
+wire                zero;
 
 wire [MWIDTH:0]     operand_a;
 wire [MWIDTH:0]     operand_b;
@@ -73,5 +77,8 @@ assign result = Exception ? {{DWIDTH{1'b0}}}                             :
 								Overflow  ? {sign, {EWIDTH{1'b1}}, {MWIDTH{1'b0}}}       : 
 								Underflow ? {sign, {EWIDTH{1'b0}}, {MWIDTH{1'b0}}}       : 
 								            {sign, exponent[0+:EWIDTH], product_mantissa};
+
+assign o_sum = product_sum;
+assign o_carry = product_carry;
 
 endmodule

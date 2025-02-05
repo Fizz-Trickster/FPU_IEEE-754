@@ -12,75 +12,94 @@ module tensor_core_mma #(
     output           [AWIDTH-1:0] C_out  
 );
 
-    // 행렬 A, B에서 각 원소 추출
-    // A_ij: A의 (i,j) 원소, B_ij: B의 (i,j) 원소
-    // 4x4 행렬 -> index: A[i][j], i,j = 0..3
-    // 예시) A[0][0] = A[(0*4 + 0)*DWIDTH +: DWIDTH]
+  // 행렬 A, B에서 각 원소 추출
+  // A_ij: A의 (i,j) 원소, B_ij: B의 (i,j) 원소
+  // 4x4 행렬 -> index: A[i][j], i,j = 0..3
+  // 예시) A[0][0] = A[(0*4 + 0)*DWIDTH +: DWIDTH]
 
-    wire  [0:3][DWIDTH-1:0] mul_result;
-    wire  [0:3]             Exception;
-    wire  [0:3]             Overflow;
-    wire  [0:3]             Underflow;
+  wire  [0:3][DWIDTH-1:0] mul_result;
+  wire  [0:3]             Exception;
+  wire  [0:3]             Overflow;
+  wire  [0:3]             Underflow;
 
-    // fp16 multiplier
-    fp16_mul #(
-      .DWIDTH       (DWIDTH),
-      .EWIDTH       (5),
-      .MWIDTH       (10),
-      .BIAS         (15)
-    ) u_fp16_mul [0:3] (
-        .a_operand      ({A_in       [3], A_in       [2], A_in       [1], A_in       [0]}
-    ),  .b_operand      ({B_in       [3], B_in       [2], B_in       [1], B_in       [0]}
-    ),  .result         ({mul_result [3], mul_result [2], mul_result [1], mul_result [0]}
-    ),  .Exception      ({Exception  [3], Exception  [2], Exception  [1], Exception  [0]}
-    ),  .Overflow       ({Overflow   [3], Overflow   [2], Overflow   [1], Overflow   [0]}
-    ),  .Underflow      ({Underflow  [3], Underflow  [2], Underflow  [1], Underflow  [0]}
-    ));
+  // 1. fp16 booth multiplier
+  fp16_mul_booth #(
+    .DWIDTH       (DWIDTH),
+    .EWIDTH       (5),
+    .MWIDTH       (10)
+  ) u_fp16_mul_booth [0:3] (
+      .a_operand      ({A_in       [0], A_in       [1], A_in       [2], A_in       [3]}
+  ),  .b_operand      ({B_in       [0], B_in       [1], B_in       [2], B_in       [3]}
+  ),  .result         ({mul_result [0], mul_result [1], mul_result [2], mul_result [3]}
+  ),  .Exception      ({Exception  [0], Exception  [1], Exception  [2], Exception  [3]}
+  ),  .Overflow       ({Overflow   [0], Overflow   [1], Overflow   [2], Overflow   [3]}
+  ),  .Underflow      ({Underflow  [0], Underflow  [1], Underflow  [2], Underflow  [3]}
+  ));
 
-    wire  [0:1][DWIDTH-1:0] add_result;
-    wire  [0:1]             add_exception;
+  // 2. shift booth multiplier by exponent
 
-    // adder tree stage 0
-    fp16_add #(
-      .DWIDTH         (DWIDTH),
-      .EWIDTH         (5),
-      .MWIDTH         (10),
-      .RWIDTH         (3)      // Round Bit-width
-    ) u_fp16_add_s0 [0:1] (
-        .a_operand      ({mul_result    [2], mul_result    [0]}
-    ),  .b_operand      ({mul_result    [3], mul_result    [1]}
-    ),  .result         ({add_result    [1], add_result    [0]}
-    ),  .Exception      ({add_exception [1], add_exception [0]}
-    ));
+  // 3. add multiplier's result
+  adder_tree_mul4 #(
+    .DWIDTH (DWIDTH),
+    .EWIDTH (5),
+    .MWIDTH (10),
+    .BIAS   (15),
+    .WWIDTH (79),
+    .VWIDTH (12),
+    .AWIDTH (AWIDTH)
+  ) u_adder_tree_mul4 (
+    .i_sum_mul (mul_result),
+    .i_carry_mul (Exception),
+    .i_init_acc (C_in),
+    .i_init (1'b0),
+    .o_kulisch_acc (C_out)
+  );
 
-    wire  [DWIDTH-1:0] final_add_result;
-    wire               final_add_exception;
+  // 4. kulisch accumulation
+  wire  [0:1][DWIDTH-1:0] add_result;
+  wire  [0:1]             add_exception;
 
-    // adder tree stage 1
-    fp16_add #(
-      .DWIDTH         (DWIDTH),
-      .EWIDTH         (5),
-      .MWIDTH         (10),
-      .RWIDTH         (3)      // Round Bit-width
-    ) u_fp16_add_s1 (
-        .a_operand      (add_result    [0]
-    ),  .b_operand      (add_result    [1]
-    ),  .result         (final_add_result
-    ),  .Exception      (final_add_exception
-    ));
+  // adder tree stage 0
+  fp16_add #(
+    .DWIDTH         (DWIDTH),
+    .EWIDTH         (5),
+    .MWIDTH         (10),
+    .RWIDTH         (3)      // Round Bit-width
+  ) u_fp16_add_s0 [0:1] (
+      .a_operand      ({mul_result    [2], mul_result    [0]}
+  ),  .b_operand      ({mul_result    [3], mul_result    [1]}
+  ),  .result         ({add_result    [1], add_result    [0]}
+  ),  .Exception      ({add_exception [1], add_exception [0]}
+  ));
 
-    // adder tree stage 2
-    fp16_add #(
-      .DWIDTH         (DWIDTH),
-      .EWIDTH         (5),
-      .MWIDTH         (10),
-      .RWIDTH         (3)      // Round Bit-width
-    ) u_fp16_add_s1 (
-        .a_operand      (final_add_result
-    ),  .b_operand      (C_in
-    ),  .result         (C_out
-    ),  .Exception      (
-    ));
+  wire  [DWIDTH-1:0] final_add_result;
+  wire               final_add_exception;
+
+  // adder tree stage 1
+  fp16_add #(
+    .DWIDTH         (DWIDTH),
+    .EWIDTH         (5),
+    .MWIDTH         (10),
+    .RWIDTH         (3)      // Round Bit-width
+  ) u_fp16_add_s1 (
+      .a_operand      (add_result    [0]
+  ),  .b_operand      (add_result    [1]
+  ),  .result         (final_add_result
+  ),  .Exception      (final_add_exception
+  ));
+
+  // adder tree stage 2
+  fp16_add #(
+    .DWIDTH         (DWIDTH),
+    .EWIDTH         (5),
+    .MWIDTH         (10),
+    .RWIDTH         (3)      // Round Bit-width
+  ) u_fp16_add_s1 (
+      .a_operand      (final_add_result
+  ),  .b_operand      (C_in
+  ),  .result         (C_out
+  ),  .Exception      (
+  ));
     //// kulisch accumulation
     //kulisch_acc_fp16 #(
     //  .DWIDTH         (DWIDTH),
