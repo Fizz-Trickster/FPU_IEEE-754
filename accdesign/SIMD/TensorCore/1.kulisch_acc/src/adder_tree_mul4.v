@@ -1,5 +1,6 @@
 
 module adder_tree_mul4 #(
+  parameter NUM    = 4,
   parameter DWIDTH = 16,
   parameter EWIDTH = 5,
   parameter MWIDTH = 10,
@@ -11,8 +12,8 @@ module adder_tree_mul4 #(
     input                    clk,
     input                    rst_n,
 
-    input  [0:3][DWIDTH-1:0] i_sum_mul,    // input fp16 data
-    input  [0:3][DWIDTH-1:0] i_carry_mul,    // input fp16 data
+    input  [NUM-1:0][DWIDTH-1:0] i_sum_mul,    // input fp16 data
+    input  [NUM-1:0][DWIDTH-1:0] i_carry_mul,    // input fp16 data
 
     output [DWIDTH-1:0]      o_sum,   
     output [DWIDTH-1:0]      o_carry   
@@ -40,94 +41,43 @@ module adder_tree_mul4 #(
 // sign : 1 bit, integer : 2046 bit, fraction : 2148 bit
 
 // FP16 Kulisch Accumulation Example
+// matissa : (10+1) bit * (10+1) bit = 22 bit
+// 1(sign) + 11(k) + 32(integer) + 48(fraction) = 92 bit
+
 // Maximum positive value : 0 11110 1111111111
-// 1.11 1111 1111 * 2^15 = 65504(FFE0h)
-// => 16 
+// 1.11 1111 1111 * 2^(15) * 1.11 1111 1111 * 2^(15) 
+// FFE0h * FFE0h = FFC0 0400h 
+// 11.1111 1111 0000 0000 0001 * 2^(30)
+// => 1.1 1111 1111 0000 0000 0001 * 2^(31)
+
 // Minimum positive value : 0 00000 0000000001
-// 0.00 0000 0001 * 2^(-14)  
-// 0000 0000 0000 0000 0000 0000 1 (0000001h)
-// => 25
+// 0.00 0000 0001 * 2^(-14) * 0.00 0000 0001 * 2^(-14)
+// 2^(-24) * 2^(-24) = 2^(-48)
 
 //------------------------------------------------
 // 1. Floating Point to Fixed Point
 // 2. Fixed Point Accumulation : Kulisch Accumulation
 //------------------------------------------------
 
-NV_DW02_tree #(
-    .num_inputs (8),
-    .input_width (DWIDTH)
-) u_NV_DW02_tree (
-    .INPUT (i_sum_mul),
-    .OUT0 (o_sum),
-    .OUT1 (o_carry)
-);
+reg [NUM*2*DWIDTH-1:0] csa_tree_in;
+integer i;
 
-
-wire [AWIDTH-1:0] fixed_data = f2i(i_fp_data);
-
-
-always @(posedge clk or negedge rst_n) begin
-    if(!rst_n) begin
-        o_kulisch_acc <= {AWIDTH{1'b0}};
-    end else if (i_init) begin
-        o_kulisch_acc <= i_init_acc + fixed_data;
-    end else begin
-        o_kulisch_acc <= o_kulisch_acc + fixed_data;
+always @(*) begin
+    for(i=0; i<NUM; i=i+1) begin
+        csa_tree_in[i*2*DWIDTH+:2*DWIDTH] = {i_sum_mul[i], i_carry_mul[i]};
     end
 end
 
+wire [1*DWIDTH-1:0] csa_tree_out0;
+wire [1*DWIDTH-1:0] csa_tree_out1;
 
-//------------------------------------------------
-// 1. Floating Point to Fixed Point
-// function [AWIDTH-1:0] f2i;
-// [47:00] : fraction
-// [77:48] : integer
-// [78]    :sign
-//------------------------------------------------
-function [AWIDTH-1:0] f2i;
-    input [DWIDTH-1:0] fp16_in;
-    localparam FP16_MIN = 24;
-    
-    reg               sign;
-    reg [EWIDTH-1:0]  exponent;
-    reg [MWIDTH-1:0]  fraction;
-    reg [MWIDTH+0:0]  mantissa;
-    
-    reg signed [EWIDTH+0:0] shift;       // min -24, max 15
-
-    reg [AWIDTH-1:0] shifted_mantissa;
-    reg [AWIDTH-1:0] fixed_val;  
-    
-    begin
-        sign     = fp16_in[DWIDTH-1];
-        exponent = fp16_in[MWIDTH+:EWIDTH];
-        fraction = fp16_in[0+:MWIDTH];
-
-        if(exponent == 0) begin
-            mantissa = {1'b0, fraction}; 
-            shift = (exponent+1) - BIAS;
-        end else begin
-            mantissa = {1'b1, fraction}; 
-            shift = (exponent+0) - BIAS;
-        end
-
-        // mantissa(11비트)를 기준으로, E>0이면 왼쪽 shift, E<0이면 오른쪽 shift
-        // mantissa는 unsigned. sign은 나중에 적용.
-        shifted_mantissa = mantissa << ((2*FP16_MIN)-MWIDTH); 
-
-        if(shift[EWIDTH] == 0) begin // shift : positive
-            fixed_val = shifted_mantissa << shift; 
-        end else begin               // shift : negative
-            fixed_val = shifted_mantissa >> (~shift+1); // shift의 절댓값만큼 >> shift
-        end
-
-        if(sign) begin
-            f2i = ~fixed_val + 1;   // negative
-        end else begin
-            f2i = fixed_val;
-        end
-    end
-endfunction
-
+NV_DW02_tree #(
+    .num_inputs  (2*NUM),
+    .input_width (DWIDTH)
+) u_NV_DW02_tree (
+    .INPUT (csa_tree_in
+),  .OUT0  (csa_tree_out0
+),  .OUT1  (csa_tree_out1
+));
 
 endmodule
