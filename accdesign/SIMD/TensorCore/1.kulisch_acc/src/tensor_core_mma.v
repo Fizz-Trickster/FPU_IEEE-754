@@ -4,10 +4,12 @@
 //
 module tensor_core_mma #(
     parameter DWIDTH = 16,
-    parameter AWIDTH = 91
+    parameter EWIDTH = 5,
+    parameter MWIDTH = 10,
+    parameter AWIDTH = 92
 )(
-    input       [0:3][DWIDTH-1:0] A_in, // row
-    input       [0:3][DWIDTH-1:0] B_in, // column
+    input       [3:0][DWIDTH-1:0] A_in, // row
+    input       [3:0][DWIDTH-1:0] B_in, // column
     input            [AWIDTH-1:0] C_in,  
     output           [AWIDTH-1:0] C_out  
 );
@@ -17,43 +19,69 @@ module tensor_core_mma #(
   // 4x4 행렬 -> index: A[i][j], i,j = 0..3
   // 예시) A[0][0] = A[(0*4 + 0)*DWIDTH +: DWIDTH]
 
-  wire  [0:3][DWIDTH-1:0] mul_result;
-  wire  [0:3]             Exception;
-  wire  [0:3]             Overflow;
-  wire  [0:3]             Underflow;
+  wire  signed [3:0][1*EWIDTH+0:0] mul_exp;
+
+  wire         [3:0][2*MWIDTH+1:0] mul_sum;
+  wire         [3:0][2*MWIDTH+1:0] mul_carry;
+
+  wire  [3:0]             Exception;
+  wire  [3:0]             Overflow;
+  wire  [3:0]             Underflow;
 
   // 1. fp16 booth multiplier
   fp16_mul_booth #(
     .DWIDTH       (DWIDTH),
     .EWIDTH       (5),
     .MWIDTH       (10)
-  ) u_fp16_mul_booth [0:3] (
-      .a_operand      ({A_in       [0], A_in       [1], A_in       [2], A_in       [3]}
-  ),  .b_operand      ({B_in       [0], B_in       [1], B_in       [2], B_in       [3]}
-  ),  .result         ({mul_result [0], mul_result [1], mul_result [2], mul_result [3]}
-  ),  .Exception      ({Exception  [0], Exception  [1], Exception  [2], Exception  [3]}
-  ),  .Overflow       ({Overflow   [0], Overflow   [1], Overflow   [2], Overflow   [3]}
-  ),  .Underflow      ({Underflow  [0], Underflow  [1], Underflow  [2], Underflow  [3]}
+  ) u_fp16_mul_booth [3:0] (
+      .a_operand      ({A_in       [3], A_in       [2], A_in       [1], A_in       [0]}
+  ),  .b_operand      ({B_in       [3], B_in       [2], B_in       [1], B_in       [0]}
+
+  ),  .o_sum          ({mul_sum    [3], mul_sum    [2], mul_sum    [1], mul_sum    [0]}
+  ),  .o_carry        ({mul_carry  [3], mul_carry  [2], mul_carry  [1], mul_carry  [0]}
+  ),  .o_exponent     ({mul_exp    [3], mul_exp    [2], mul_exp    [1], mul_exp    [0]}
+
+  ),  .Exception      ({Exception  [3], Exception  [2], Exception  [1], Exception  [0]}
+  ),  .Overflow       ({Overflow   [3], Overflow   [2], Overflow   [1], Overflow   [0]}
+  ),  .Underflow      ({Underflow  [3], Underflow  [2], Underflow  [1], Underflow  [0]}
   ));
 
   // 2. shift booth multiplier by exponent
+  reg  signed [3:0][EWIDTH+1:0] shift_exp;
+
+  reg         [3:0][AWIDTH-1:0] fixed_sum;
+  reg         [3:0][AWIDTH-1:0] fixed_carry;
+
+  integer i;
+  always @(*) begin
+    for (i = 0; i < 4; i = i + 1) begin
+      shift_exp  [i] = mul_exp  [i] + 28;
+      fixed_sum  [i] = mul_sum  [i] << shift_exp[i];
+      fixed_carry[i] = mul_carry[i] << shift_exp[i];
+    end
+  end
 
   // 3. add multiplier's result
+  wire [AWIDTH-1:0] tree_sum;
+  wire [AWIDTH-1:0] tree_carry;
+
   adder_tree_mul4 #(
-    .DWIDTH (DWIDTH),
+    .NUM    (4),
+    .DWIDTH (AWIDTH),
     .EWIDTH (5),
     .MWIDTH (10),
-    .BIAS   (15),
     .WWIDTH (79),
-    .VWIDTH (12),
-    .AWIDTH (AWIDTH)
+    .VWIDTH (12)
   ) u_adder_tree_mul4 (
-    .i_sum_mul (mul_result),
-    .i_carry_mul (Exception),
-    .i_init_acc (C_in),
-    .i_init (1'b0),
-    .o_kulisch_acc (C_out)
-  );
+      .clk            (clk
+  ),  .rst_n          (rst_n
+
+  ),  .i_sum_mul      (fixed_sum
+  ),  .i_carry_mul    (fixed_carry
+
+  ),  .o_sum          (tree_sum
+  ),  .o_carry        (tree_carry
+  ));
 
   // 4. kulisch accumulation
   wire  [0:1][DWIDTH-1:0] add_result;

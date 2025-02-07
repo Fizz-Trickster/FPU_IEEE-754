@@ -14,19 +14,19 @@ module fp16_mul_booth #(
 
     output  [2*MWIDTH+1:0]  o_sum,
     output  [2*MWIDTH+1:0]  o_carry,
-    output  [  EWIDTH-1:0]  o_exponent,
+    output  [  EWIDTH+0:0]  o_exponent,
 
-    output                  exception,
-    output                  overflow,
-    output                  underflow
+    output                  Exception,
+    output                  Overflow,
+    output                  Underflow
   );
 
 wire                sign;
 wire                normalized;
 wire                zero;
 
-wire [MWIDTH:0]     operand_a;
-wire [MWIDTH:0]     operand_b;
+wire [1*MWIDTH+0:0] operand_a;
+wire [1*MWIDTH+0:0] operand_b;
 
 wire [2*MWIDTH+1:0] product_sum; 
 wire [2*MWIDTH+1:0] product_carry; 
@@ -68,8 +68,14 @@ r4_mb11 #(
 	));
 
 // Exponent operation
-assign sum_exponent = a_operand[MWIDTH+:EWIDTH] + b_operand[MWIDTH+:EWIDTH];
-assign exponent = sum_exponent - BIAS;
+wire [EWIDTH-1:0] exponent_a;
+wire [EWIDTH-1:0] exponent_b;
+
+assign exponent_a = (|a_operand[MWIDTH+:EWIDTH]) ? a_operand[MWIDTH+:EWIDTH]-BIAS : -(BIAS-1);
+assign exponent_b = (|b_operand[MWIDTH+:EWIDTH]) ? b_operand[MWIDTH+:EWIDTH]-BIAS : -(BIAS-1);
+
+assign sum_exponent = exponent_a + exponent_b;
+assign exponent = sum_exponent;
 
 // Result operation
 assign result = Exception ? {{DWIDTH{1'b0}}}                             : 
@@ -80,5 +86,6 @@ assign result = Exception ? {{DWIDTH{1'b0}}}                             :
 
 assign o_sum = product_sum;
 assign o_carry = product_carry;
+assign o_exponent = exponent;
 
 endmodule
