@@ -1,43 +1,25 @@
-
 module kulisch_acc_fp16 #(
+  parameter NUM    = 4,
   parameter DWIDTH = 16,
   parameter EWIDTH = 5,
   parameter MWIDTH = 10,
   parameter BIAS   = (1 << (EWIDTH-1)) - 1,   // 15 = 2^(5-1)-1
-  parameter WWIDTH = 79,
-  parameter VWIDTH = 12,
-  parameter AWIDTH = WWIDTH + VWIDTH
+  parameter AWIDTH = 92                       // Accumulation bit-width: 92-bit (1(sign) + 11(k) + 32(integer) + 48(fraction))
 )(
-    input                    clk,
-    input                    rst_n,
+    input                                 clk,
+    input                                 rst_n,
 
-    input  [DWIDTH-1:0]      i_fp_data,    // input fp16 data
-    input  [AWIDTH-1:0]      i_init_acc,   // initial accumulation value
-    input                    i_init,       // initial accumulation
+    input         [NUM-1:0][2*MWIDTH+1:0] i_sum_mul,    // input fp16 data
+    input         [NUM-1:0][2*MWIDTH+1:0] i_carry_mul,  // input fp16 data
+    input  signed [NUM-1:0][1*EWIDTH+0:0] i_exp_mul,
 
-    output reg  [AWIDTH-1:0] o_kulisch_acc // accumulated value
+
+    input                  [AWIDTH-1:0] i_sum_acc,    // kulisch accumulator 
+    input                  [AWIDTH-1:0] i_carry_acc,  // kulisch accumulator 
+
+    output                 [AWIDTH-1:0] o_sum_acc,    // kulisch accumulator 
+    output                 [AWIDTH-1:0] o_carry_acc   // kulisch accumulator  
 );
-
-// Range
-// FP08 : 2^(-02-07) ~ 2^(14-07)        : 2^(-09) ~ 2^07
-// FP16 : 2^(-09-15) ~ 2^(30-15)        : 2^(-24) ~ 2^15
-// FP32 : 2^(-22-127) ~ 2^(254-127)     : 2^(-149) ~ 2^127
-// FP64 : 2^(-51-1023) ~ 2^(2046-1023)  : 2^(-1074) ~ 2^1023
-
-// Kulisch Accumulation bit-width (W+V)
-// W : bit-width of full range of the product
-// V : additional bit-width for overflow 
-// FP08 => W: 2*(07+09)+1 = 33
-// sign : 1 bit, integer : 14 bit, fraction : 18 bit
-
-// FP16 => W: 2*(15+24)+1 = 79
-// sign : 1 bit, integer : 30 bit, fraction : 48 bit
-
-// FP32 => W: 2*(127+149)+1 = 553     V : 86
-// sign : 1 bit, integer : 254 bit, fraction : 258 bit
-
-// FP64 => W: 2*(1023+1074)+1 = 4195  V : 92
-// sign : 1 bit, integer : 2046 bit, fraction : 2148 bit
 
 // FP16 Kulisch Accumulation Example
 // Maximum positive value : 0 11110 1111111111
@@ -52,71 +34,61 @@ module kulisch_acc_fp16 #(
 // 1. Floating Point to Fixed Point
 // 2. Fixed Point Accumulation : Kulisch Accumulation
 //------------------------------------------------
-wire [AWIDTH-1:0] fixed_data = f2i(i_fp_data);
-
-
-always @(posedge clk or negedge rst_n) begin
-    if(!rst_n) begin
-        o_kulisch_acc <= {AWIDTH{1'b0}};
-    end else if (i_init) begin
-        o_kulisch_acc <= i_init_acc + fixed_data;
-    end else begin
-        o_kulisch_acc <= o_kulisch_acc + fixed_data;
-    end
-end
-
 
 //------------------------------------------------
-// 1. Floating Point to Fixed Point
+// 1. Shift booth multiplier by exponent
 // function [AWIDTH-1:0] f2i;
 // [47:00] : fraction
 // [77:48] : integer
 // [78]    :sign
 //------------------------------------------------
-function [AWIDTH-1:0] f2i;
-    input [DWIDTH-1:0] fp16_in;
-    localparam FP16_MIN = 24;
-    
-    reg               sign;
-    reg [EWIDTH-1:0]  exponent;
-    reg [MWIDTH-1:0]  fraction;
-    reg [MWIDTH+0:0]  mantissa;
-    
-    reg signed [EWIDTH+0:0] shift;       // min -24, max 15
+reg  signed [NUM-1:0][EWIDTH+1:0] shift_exp;
 
-    reg [AWIDTH-1:0] shifted_mantissa;
-    reg [AWIDTH-1:0] fixed_val;  
-    
-    begin
-        sign     = fp16_in[DWIDTH-1];
-        exponent = fp16_in[MWIDTH+:EWIDTH];
-        fraction = fp16_in[0+:MWIDTH];
+reg         [NUM-1:0][AWIDTH-1:0] fixed_sum;
+reg         [NUM-1:0][AWIDTH-1:0] fixed_carry;
 
-        if(exponent == 0) begin
-            mantissa = {1'b0, fraction}; 
-            shift = (exponent+1) - BIAS;
-        end else begin
-            mantissa = {1'b1, fraction}; 
-            shift = (exponent+0) - BIAS;
-        end
+integer k;
+always @(*) begin
+  for (k = 0; k < NUM; k = k + 1) begin
+    shift_exp  [k] = i_exp_mul  [k] + 28;
+    fixed_sum  [k] = i_sum_mul  [k] << shift_exp[k];
+    fixed_carry[k] = i_carry_mul[k] << shift_exp[k];
+  end
+end
 
-        // mantissa(11비트)를 기준으로, E>0이면 왼쪽 shift, E<0이면 오른쪽 shift
-        // mantissa는 unsigned. sign은 나중에 적용.
-        shifted_mantissa = mantissa << ((2*FP16_MIN)-MWIDTH); 
+reg [2*AWIDTH-1:0]         accData_combined;
+reg [2*(NUM+0)*AWIDTH-1:0] fixedData_combined;
+reg [2*(NUM+1)*AWIDTH-1:0] csa_tree_in;
 
-        if(shift[EWIDTH] == 0) begin // shift : positive
-            fixed_val = shifted_mantissa << shift; 
-        end else begin               // shift : negative
-            fixed_val = shifted_mantissa >> (~shift+1); // shift의 절댓값만큼 >> shift
-        end
+integer i;
+always @(*) begin
+  for(i=0; i<NUM; i=i+1) begin
+    fixedData_combined[i*2*AWIDTH+:2*AWIDTH] = {fixed_sum[i], fixed_carry[i]};
+  end
+end
 
-        if(sign) begin
-            f2i = ~fixed_val + 1;   // negative
-        end else begin
-            f2i = fixed_val;
-        end
-    end
-endfunction
+always @(*) begin
+  accData_combined = {i_sum_acc, i_carry_acc};
+end
 
+always @(*) begin
+  csa_tree_in = {accData_combined, fixedData_combined};
+end
+
+wire [1*AWIDTH-1:0] csa_tree_out0;
+wire [1*AWIDTH-1:0] csa_tree_out1;
+
+NV_DW02_tree #(
+    .num_inputs  (2*(NUM+1)),
+    .input_width (AWIDTH)
+) u_NV_DW02_tree (
+    .INPUT (csa_tree_in
+),  .OUT0  (csa_tree_out0
+),  .OUT1  (csa_tree_out1
+));
+
+
+assign o_sum_acc = csa_tree_out0;
+assign o_carry_acc = csa_tree_out1;
 
 endmodule
