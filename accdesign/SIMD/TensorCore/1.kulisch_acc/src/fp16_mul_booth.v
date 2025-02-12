@@ -56,6 +56,7 @@ assign operand_a = (|a_operand[MWIDTH+:EWIDTH]) ? {1'b1, a_operand[0+:MWIDTH]} :
 assign operand_b = (|b_operand[MWIDTH+:EWIDTH]) ? {1'b1, b_operand[0+:MWIDTH]} : {1'b0, b_operand[0+:MWIDTH]};
 
 // Multiply Mantissa by Radix-4 Booth Multiplier
+// TODO : chatGPT wallace tree code generation
 r4_mb11 #(
   .WIDTH (MWIDTH+1)
   ) u_r4_mb11 (
