@@ -1,10 +1,10 @@
 module wallace_tree_param #(
-    parameter int PARTIAL_COUNT = 6, // 부분곱 개수
-    parameter int BW            = 22 // 각 부분곱의 비트폭
+    parameter PARTIAL_COUNT = 6, // 부분곱 개수
+    parameter BW            = 22 // 각 부분곱의 비트폭
 )(
-    input  logic [BW-1:0] in [PARTIAL_COUNT], // 입력 부분곱들(SV 배열)
-    output logic [BW-1:0] sum,
-    output logic [BW-1:0] carry
+    input  wire [BW-1:0] in [PARTIAL_COUNT], // 입력 부분곱들(SV 배열)
+    output reg  [BW-1:0] sum,
+    output reg  [BW-1:0] carry
 );
 
     //--------------------------------------------------------------------------
@@ -105,7 +105,7 @@ module wallace_tree_param #(
     //    - 1이면 partials[STAGES][0]만 sum, carry=0
     //    - 0이면(극단적 케이스) sum=0, carry=0
     //--------------------------------------------------------------------------
-    always_comb begin
+    always @(*) begin
         if (size[STAGES] >= 2) begin
             sum   = partials[STAGES][0];
             carry = partials[STAGES][1];

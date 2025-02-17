@@ -12,37 +12,21 @@ module fp16_mul_booth #(
     input   [1*DWIDTH-1:0]  a_operand,
     input   [1*DWIDTH-1:0]  b_operand,
 
-    output  [2*MWIDTH+1:0]  o_sum,
-    output  [2*MWIDTH+1:0]  o_carry,
-    output  [  EWIDTH+0:0]  o_exponent,
-
-    output                  Exception,
-    output                  Overflow,
-    output                  Underflow
+    output         [2*MWIDTH+1:0]  o_sum,
+    output         [2*MWIDTH+1:0]  o_carry,
+    output                         o_sign,
+    output  signed [  EWIDTH+0:0]  o_exponent
   );
 
 wire                sign;
-wire                normalized;
-wire                zero;
 
 wire [1*MWIDTH+0:0] operand_a;
 wire [1*MWIDTH+0:0] operand_b;
 
 wire [2*MWIDTH+1:0] product_sum; 
 wire [2*MWIDTH+1:0] product_carry; 
+wire [1*EWIDTH+0:0] product_exponent;
 
-wire [2*MWIDTH+1:0] product; 
-wire [2*MWIDTH+1:0] product_normalized; 
-
-wire                guard;
-wire                round;
-wire                sticky;
-wire                round_up;
-
-wire [EWIDTH:0] exponent;
-wire [EWIDTH:0] sum_exponent;
-
-wire [MWIDTH-1:0] product_mantissa;
 
 
 // sign operation
@@ -56,9 +40,8 @@ assign operand_a = (|a_operand[MWIDTH+:EWIDTH]) ? {1'b1, a_operand[0+:MWIDTH]} :
 assign operand_b = (|b_operand[MWIDTH+:EWIDTH]) ? {1'b1, b_operand[0+:MWIDTH]} : {1'b0, b_operand[0+:MWIDTH]};
 
 // Multiply Mantissa by Radix-4 Booth Multiplier
-// TODO : chatGPT wallace tree code generation
 r4_mb11 #(
-  .WIDTH (MWIDTH+1)
+ .WIDTH (MWIDTH+1)
   ) u_r4_mb11 (
       .CLK        (1'b0
   ),  .RST        (1'b0
@@ -75,18 +58,10 @@ wire [EWIDTH-1:0] exponent_b;
 assign exponent_a = (|a_operand[MWIDTH+:EWIDTH]) ? a_operand[MWIDTH+:EWIDTH]-BIAS : -(BIAS-1);
 assign exponent_b = (|b_operand[MWIDTH+:EWIDTH]) ? b_operand[MWIDTH+:EWIDTH]-BIAS : -(BIAS-1);
 
-assign sum_exponent = exponent_a + exponent_b;
-assign exponent = sum_exponent;
+assign product_exponent = exponent_a + exponent_b;
 
-// Result operation
-assign result = Exception ? {{DWIDTH{1'b0}}}                             : 
-								zero      ? {sign, {EWIDTH{1'b0}}, {MWIDTH{1'b0}}}       : 
-								Overflow  ? {sign, {EWIDTH{1'b1}}, {MWIDTH{1'b0}}}       : 
-								Underflow ? {sign, {EWIDTH{1'b0}}, {MWIDTH{1'b0}}}       : 
-								            {sign, exponent[0+:EWIDTH], product_mantissa};
-
-assign o_sum = product_sum;
-assign o_carry = product_carry;
-assign o_exponent = exponent;
+assign o_sum      = product_sum;
+assign o_carry    = product_carry;
+assign o_exponent = product_exponent;
 
 endmodule

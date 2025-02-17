@@ -4,9 +4,9 @@
 //
 module tensor_core_mma #(
     parameter NUM    = 4,        // Number of elements: 4
-    parameter DWIDTH = 16,       // FP16 bit-width: 16-bit
-    parameter EWIDTH = 5,        // FP16 exponent bit-width: 5-bit
-    parameter MWIDTH = 10,       // FP16 mantissa bit-width: 10-bit
+    parameter DWIDTH = 16,       // FP16 bit-width : 16-bit
+    parameter EWIDTH = 5,        // FP16 bit-width exponent: 5-bit
+    parameter MWIDTH = 10,       // FP16 bit-width mantissa: 10-bit
     parameter AWIDTH = 92        // Accumulation bit-width: 92-bit (1(sign) + 11(k) + 32(integer) + 48(fraction))
 )(
     input       [NUM-1:0][DWIDTH-1:0] A_in, // row
@@ -22,32 +22,25 @@ module tensor_core_mma #(
 
   wire  signed [NUM-1:0][1*EWIDTH+0:0] mul_exp;
 
-  wire         [NUM-1:0][2*MWIDTH+1:0] mul_sum;
-  wire         [NUM-1:0][2*MWIDTH+1:0] mul_carry;
-
-  wire         [NUM-1:0]               Exception;
-  wire         [NUM-1:0]               Overflow;
-  wire         [NUM-1:0]               Underflow;
-
+  wire         [NUM-1:0][2*MWIDTH+1:0] mul_sum;    // mantissa 곱셈 결과 sum
+  wire         [NUM-1:0][2*MWIDTH+1:0] mul_carry;  // mantissa 곱셈 결과 carry
+  wire         [NUM-1:0]               mul_sign;   // mantissa 곱셈 결과 sign
   genvar i;
   generate
     for (i = 0; i < NUM; i = i + 1) begin : mul_booth
       // 1. fp16 booth multiplier
       fp16_mul_booth #(
         .DWIDTH       (DWIDTH),
-        .EWIDTH       (5),
-        .MWIDTH       (10)
+        .EWIDTH       (EWIDTH),
+        .MWIDTH       (MWIDTH)
       ) u_fp16_mul_booth (
           .a_operand      (A_in       [i]
       ),  .b_operand      (B_in       [i]
 
       ),  .o_sum          (mul_sum    [i]
       ),  .o_carry        (mul_carry  [i]
+      ),  .o_sign         (mul_sign   [i]
       ),  .o_exponent     (mul_exp    [i]
-
-      ),  .Exception      (Exception  [i]
-      ),  .Overflow       (Overflow   [i]
-      ),  .Underflow      (Underflow  [i]
       ));
     end
   endgenerate
