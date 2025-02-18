@@ -12,9 +12,9 @@ module fp16_mul_booth #(
     input   [1*DWIDTH-1:0]  a_operand,
     input   [1*DWIDTH-1:0]  b_operand,
 
+    output                         o_sign,
     output         [2*MWIDTH+1:0]  o_sum,
     output         [2*MWIDTH+1:0]  o_carry,
-    output                         o_sign,
     output  signed [  EWIDTH+0:0]  o_exponent
   );
 
@@ -26,8 +26,6 @@ wire [1*MWIDTH+0:0] operand_b;
 wire [2*MWIDTH+1:0] product_sum; 
 wire [2*MWIDTH+1:0] product_carry; 
 wire [1*EWIDTH+0:0] product_exponent;
-
-
 
 // sign operation
 assign sign = a_operand[DWIDTH-1] ^ b_operand[DWIDTH-1];

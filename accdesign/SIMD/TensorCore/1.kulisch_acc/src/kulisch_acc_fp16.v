@@ -6,19 +6,19 @@ module kulisch_acc_fp16 #(
   parameter BIAS   = (1 << (EWIDTH-1)) - 1,   // 15 = 2^(5-1)-1
   parameter AWIDTH = 92                       // Accumulation bit-width: 92-bit (1(sign) + 11(k) + 32(integer) + 48(fraction))
 )(
-    input                                 clk,
-    input                                 rst_n,
+  input                                 clk,
+  input                                 rst_n,
 
-    input         [NUM-1:0][2*MWIDTH+1:0] i_sum_mul,    // input fp16 data
-    input         [NUM-1:0][2*MWIDTH+1:0] i_carry_mul,  // input fp16 data
-    input  signed [NUM-1:0][1*EWIDTH+0:0] i_exp_mul,
+  input         [NUM-1:0]               i_sign_mul,
+  input         [NUM-1:0][2*MWIDTH+1:0] i_sum_mul,    // input  fp16 data
+  input         [NUM-1:0][2*MWIDTH+1:0] i_carry_mul,  // input  fp16 data
+  input  signed [NUM-1:0][1*EWIDTH+0:0] i_exp_mul,
 
+  input                  [1*AWIDTH-1:0] i_sum_acc,    // input  kulisch accumulator 
+  input                  [1*AWIDTH-1:0] i_carry_acc,  // input  kulisch accumulator 
 
-    input                  [AWIDTH-1:0] i_sum_acc,    // kulisch accumulator 
-    input                  [AWIDTH-1:0] i_carry_acc,  // kulisch accumulator 
-
-    output                 [AWIDTH-1:0] o_sum_acc,    // kulisch accumulator 
-    output                 [AWIDTH-1:0] o_carry_acc   // kulisch accumulator  
+  output                 [1*AWIDTH-1:0] o_sum_acc,    // output kulisch accumulator 
+  output                 [1*AWIDTH-1:0] o_carry_acc   // output kulisch accumulator  
 );
 
 // FP16 Kulisch Accumulation Example
@@ -87,8 +87,7 @@ NV_DW02_tree #(
 ),  .OUT1  (csa_tree_out1
 ));
 
-
-assign o_sum_acc = csa_tree_out0;
+assign o_sum_acc   = csa_tree_out0;
 assign o_carry_acc = csa_tree_out1;
 
 endmodule
