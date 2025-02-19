@@ -40,16 +40,18 @@ module kulisch_acc_fp16 #(
 // function [AWIDTH-1:0] f2i;
 // [47:00] : fraction
 // [77:48] : integer
-// [78]    :sign
+// [78]    : sign
 //------------------------------------------------
 reg  signed [NUM-1:0][EWIDTH+1:0] shift_exp;
 
+reg         [NUM-1:0]             fixed_sign;
 reg         [NUM-1:0][AWIDTH-1:0] fixed_sum;
 reg         [NUM-1:0][AWIDTH-1:0] fixed_carry;
 
 integer k;
 always @(*) begin
   for (k = 0; k < NUM; k = k + 1) begin
+    fixed_sign [k] = i_sign_mul [k];
     shift_exp  [k] = i_exp_mul  [k] + 28;
     fixed_sum  [k] = i_sum_mul  [k] << shift_exp[k];
     fixed_carry[k] = i_carry_mul[k] << shift_exp[k];
@@ -82,9 +84,9 @@ NV_DW02_tree #(
     .num_inputs  (2*(NUM+1)),
     .input_width (AWIDTH)
 ) u_NV_DW02_tree (
-    .INPUT (csa_tree_in
-),  .OUT0  (csa_tree_out0
-),  .OUT1  (csa_tree_out1
+    .INPUT       (csa_tree_in
+),  .OUT0        (csa_tree_out0
+),  .OUT1        (csa_tree_out1
 ));
 
 assign o_sum_acc   = csa_tree_out0;

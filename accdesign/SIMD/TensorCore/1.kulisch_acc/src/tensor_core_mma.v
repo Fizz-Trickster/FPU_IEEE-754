@@ -5,11 +5,18 @@ module tensor_core_mma #(
   parameter MWIDTH = 10,       // FP16 bit-width mantissa: 10-bit
   parameter AWIDTH = 92        // Accumulation bit-width: 92-bit (1(sign) + 11(k) + 32(integer) + 48(fraction))
 )(
-  input       [NUM-1:0][DWIDTH-1:0] A_in, // row
-  input       [NUM-1:0][DWIDTH-1:0] B_in, // column
-  input                [AWIDTH-1:0] C_in,  
-  output               [AWIDTH-1:0] C_out  
+  input       [NUM-1:0][DWIDTH-1:0] A_in,         // row
+  input       [NUM-1:0][DWIDTH-1:0] B_in,         // column
+
+  input                [AWIDTH-1:0] C_sum_in,  
+  input                [AWIDTH-1:0] C_carry_in,  
+  input                             C_valid_in,  
+
+  output               [AWIDTH-1:0] C_sum_out,  
+  output               [AWIDTH-1:0] C_carry_out  
 );
+
+// C_out = A_in * B_in + C_in 
 
 // 행렬 A, B에서 각 원소 추출
 // A_ij: A의 (i,j) 원소, B_ij: B의 (i,j) 원소
@@ -26,17 +33,17 @@ genvar i;
 generate
   for (i = 0; i < NUM; i = i + 1) begin : mul_booth
     fp16_mul_booth #(
-      .DWIDTH       (DWIDTH),
-      .EWIDTH       (EWIDTH),
-      .MWIDTH       (MWIDTH)
+      .DWIDTH          (DWIDTH),
+      .EWIDTH          (EWIDTH),
+      .MWIDTH          (MWIDTH)
     ) u_fp16_mul_booth (
-        .a_operand      (A_in       [i]
-    ),  .b_operand      (B_in       [i]
+        .a_operand     (A_in       [i]
+    ),  .b_operand     (B_in       [i]
 
-    ),  .o_sum          (mul_sum    [i]
-    ),  .o_carry        (mul_carry  [i]
-    ),  .o_sign         (mul_sign   [i]
-    ),  .o_exponent     (mul_exp    [i]
+    ),  .o_sum         (mul_sum    [i]
+    ),  .o_carry       (mul_carry  [i]
+    ),  .o_sign        (mul_sign   [i]
+    ),  .o_exponent    (mul_exp    [i]
     ));
   end
 endgenerate
@@ -50,8 +57,8 @@ wire  [1*AWIDTH-1:0] final_carry_acc;
 reg   [1*AWIDTH-1:0] final_sum_acc_d;
 reg   [1*AWIDTH-1:0] final_carry_acc_d;
 
-assign kulisch_sum_acc   = final_sum_acc_d;
-assign kulisch_carry_acc = final_carry_acc_d;
+assign kulisch_sum_acc   = C_valid_in ? C_sum_in : final_sum_acc_d;
+assign kulisch_carry_acc = C_valid_in ? C_carry_in : final_carry_acc_d;
 
 kulisch_acc_fp16 #(
     .NUM             ( NUM     ),
@@ -84,5 +91,8 @@ always @(posedge clk, negedge rst_n) begin
     final_carry_acc_d <= final_carry_acc;
   end
 end
+
+assign C_sum_out   = final_sum_acc_d;
+assign C_carry_out = final_carry_acc_d;
 
 endmodule
