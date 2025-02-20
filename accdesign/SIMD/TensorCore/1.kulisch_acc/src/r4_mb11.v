@@ -28,7 +28,7 @@ wire [group_cnt-1:0] e;             // sign extension
   booth_encoder b_e2(.x({mx[ 5], mx[ 4], mx[3]}), .single(s[2]), .double(d[2]), .neg(n[2]), .pzero(pze[2]), .nzero(nze[2]));
   booth_encoder b_e3(.x({mx[ 7], mx[ 6], mx[5]}), .single(s[3]), .double(d[3]), .neg(n[3]), .pzero(pze[3]), .nzero(nze[3]));
   booth_encoder b_e4(.x({mx[ 9], mx[ 8], mx[7]}), .single(s[4]), .double(d[4]), .neg(n[4]), .pzero(pze[4]), .nzero(nze[4]));
-  booth_encoder b_e4(.x({mx[10], mx[10], mx[9]}), .single(s[5]), .double(d[5]), .neg(n[5]), .pzero(pze[5]), .nzero(nze[5]));
+  booth_encoder b_e5(.x({mx[10], mx[10], mx[9]}), .single(s[5]), .double(d[5]), .neg(n[5]), .pzero(pze[5]), .nzero(nze[5]));
 
 //--------------------------------------------------------
 // 2. Booth Selector를 통한 Partial Product 생성
@@ -80,10 +80,10 @@ assign fpp5 = { e[5], epp2d[5]};
 //    sum, carry 생성
 //--------------------------------------------------------
 
-wire [2*WIDTH-1:0] SUM;
-wire [2*WIDTH-1:0] CARRY; 
-wire [4*WIDTH-1:0] INT_SUM;
-wire [4*WIDTH-1:0] INT_CARRY;
+wire [6*WIDTH-1:0] SUM;
+wire [6*WIDTH-1:0] CARRY; 
+wire [6*WIDTH-1:0] INT_SUM;
+wire [6*WIDTH-1:0] INT_CARRY;
 
 
   // -------------------------

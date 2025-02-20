@@ -9,8 +9,8 @@ module fp16_mul_booth #(
   parameter MWIDTH = 10,
   parameter BIAS   = (1 << (EWIDTH-1)) - 1		// 15 = 2^(5-1)-1
   )(
-    input   [1*DWIDTH-1:0]  a_operand,
-    input   [1*DWIDTH-1:0]  b_operand,
+    input          [1*DWIDTH-1:0]  a_operand,
+    input          [1*DWIDTH-1:0]  b_operand,
 
     output                         o_sign,
     output         [2*MWIDTH+1:0]  o_sum,

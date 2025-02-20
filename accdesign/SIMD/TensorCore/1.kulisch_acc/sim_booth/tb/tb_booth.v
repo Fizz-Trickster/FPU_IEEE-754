@@ -15,30 +15,27 @@ always #(CLK_PERIOD/2) clk = ~clk;
 reg   [DWIDTH-1:0]  a_operand;
 reg   [DWIDTH-1:0]  b_operand;
 
-wire  [DWIDTH-1:0]  result;
-wire                valid_out;
-wire                Overflow;
-wire                Underflow;
+wire                         sign;
+wire         [2*MWIDTH+1:0]  sum;
+wire         [2*MWIDTH+1:0]  carry;
+wire  signed [  EWIDTH+0:0]  exponent;
 
 reg  [9:0][DWIDTH-1:0] data_x ;
 reg  [9:0][DWIDTH-1:0] data_y ;
 reg  [9:0][DWIDTH-1:0] data_o ;
 
 
-kulisch_acc_fp16 #(
+fp16_mul_booth #(
   .DWIDTH ( 16 ),
   .EWIDTH ( 5  ),
-  .MWIDTH ( 10 ),
-  .BIAS   ( 15 ),
-  .WWIDTH ( 79 ),
-  .VWIDTH ( 12 ) 
-) u_kulisch_acc_fp16(
-	    .clk            (clk   
-	),  .rst_n          (rstn      
-	),  .i_fp_data      (a_operand   // i [DWIDTH-1:0]
-	),  .i_init_acc     (0   
-	),  .i_init         (0
-	),  .o_kulisch_acc  (result
+  .MWIDTH ( 10 )
+) u_fp16_mul_booth(
+	    .a_operand      (a_operand   // i [DWIDTH-1:0]
+	),  .b_operand      (b_operand   // i [DWIDTH-1:0]
+	),  .o_sign         (sign
+	),  .o_sum          (sum
+	),  .o_carry        (carry
+	),  .o_exponent     (exponent
   ));
 
 integer  idx = 0;
@@ -68,8 +65,8 @@ integer  idx = 0;
 initial begin 
   //Dump .fsdb
   $fsdbDumpfile("waveform.fsdb");
-  $fsdbDumpvars(0, tb_fp_acc, "+all");
-  $fsdbDumpvars(0, tb_fp_acc, "+functions");
+  $fsdbDumpvars(0, tb_booth, "+all");
+  $fsdbDumpvars(0, tb_booth, "+functions");
   
   //Dump .vcd
   //$dumpfile("waveform.vcd");
@@ -101,7 +98,7 @@ initial begin
   // one 
   data_x[0] = 11'b1_10_0000_0000;
   data_y[0] = 11'b1_01_0000_0000;
-  data_o[0] = 11'b111_10_0000_0000;
+  data_o[0] = 13'b111_10_0000_0000;
 
   // smallest positive subnormal number
   data_x[1] = 16'b0_00000_00_0000_0001;
