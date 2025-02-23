@@ -48,7 +48,7 @@ generate
   end
 endgenerate
 
-// 4. kulisch accumulation
+// 2. kulisch accumulation
 wire  [1*AWIDTH-1:0] kulisch_sum_acc;
 wire  [1*AWIDTH-1:0] kulisch_carry_acc;
 

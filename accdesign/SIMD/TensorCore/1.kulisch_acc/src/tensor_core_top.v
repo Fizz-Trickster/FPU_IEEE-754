@@ -3,35 +3,45 @@
 // 4x4 matrix multiplication with Kulisch Accumulation
 // C_out = A_in * B_in + C_in
 module tensor_core_top #(
-    parameter DWIDTH = 16,          // FP16
-    parameter AWIDTH = 91           // FP16 Kulisch Accumulation
+    parameter NUM    = 4,        // Number of elements: 4
+    parameter DWIDTH = 16,       // FP16 bit-width : 16-bit
+    parameter EWIDTH = 5,        // FP16 bit-width exponent: 5-bit
+    parameter MWIDTH = 10,       // FP16 bit-width mantissa: 10-bit
+    parameter AWIDTH = 92        // Accumulation bit-width: 92-bit (1(sign) + 11(k) + 32(integer) + 48(fraction))
 )(
-    input                               clk,
-    input                               rst_n,
+    input                                       clk,
+    input                                       rst_n,
 
-    input       [0:3][0:3][DWIDTH-1:0]  A_in, // 4x4 matrix
-    input       [0:3][0:3][DWIDTH-1:0]  B_in, // 4x4 matrix
-    input                               in_valid,
+    input       [NUM-1:0][NUM-1:0][DWIDTH-1:0]  A_in,           // 4x4 matrix
+    input       [NUM-1:0][NUM-1:0][DWIDTH-1:0]  B_in,           // 4x4 matrix
 
-    input       [0:3][0:3][AWIDTH-1:0]  C_in, // 4x4 matrix
-    input                               C_in_valid,
+    input       [NUM-1:0][NUM-1:0][AWIDTH-1:0]  C_sum_in,       // 4x4 matrix
+    input       [NUM-1:0][NUM-1:0][AWIDTH-1:0]  C_carry_in,     // 4x4 matrix
+    input                                       C_valid_in,
 
-    output reg  [0:3][0:3][AWIDTH-1:0]  C_out, // 4x4 matrix
-    output reg                          out_valid
+    output      [NUM-1:0][NUM-1:0][AWIDTH-1:0]  C_sum_out,      // 4x4 matrix
+    output      [NUM-1:0][NUM-1:0][AWIDTH-1:0]  C_carry_out    // 4x4 matrix
 );
 
     // MMA 모듈 연결  
     tensor_core_gemm #(
-        .DWIDTH(DWIDTH),
-        .AWIDTH(AWIDTH)
+        .NUM             ( NUM         ),
+        .DWIDTH          ( DWIDTH      ),
+        .EWIDTH          ( EWIDTH      ),
+        .MWIDTH          ( MWIDTH      ),
+        .AWIDTH          ( AWIDTH      )
     ) u_tensor_core_gemm (
-        .A_in     (A_in ),
-        .B_in     (B_in ),
-        .C_in     (C_in ),
-        .C_out    (C_out)
+        .A_in            ( A_in        ),
+        .B_in            ( B_in        ),
+
+        .C_sum_in        ( C_sum_in    ),
+        .C_carry_in      ( C_carry_in  ),
+        .C_valid_in      ( C_valid_in  ),
+
+        .C_sum_out       ( C_sum_out   ),
+        .C_carry_out     ( C_carry_out )
     );
 
-    // 상태 기계 정의
     typedef enum logic [1:0] {
         IDLE  = 2'b00,
         LOAD  = 2'b01,
@@ -41,12 +51,6 @@ module tensor_core_top #(
 
     state_t current_state, next_state;
 
-    // 내부 버퍼(레지스터)에 행렬 저장
-    reg [DWIDTH*16-1:0] A_reg;
-    reg [DWIDTH*16-1:0] B_reg;
-    wire [DWIDTH*16-1:0] C_wire; // MMA 모듈에서 나온 결과
-
-    // 상태 전이
     always @(posedge clk or posedge rst_n) begin
         if(rst_n) begin
             current_state <= IDLE;

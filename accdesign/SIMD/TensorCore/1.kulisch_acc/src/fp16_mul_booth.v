@@ -37,17 +37,36 @@ assign sign = a_operand[DWIDTH-1] ^ b_operand[DWIDTH-1];
 assign operand_a = (|a_operand[MWIDTH+:EWIDTH]) ? {1'b1, a_operand[0+:MWIDTH]} : {1'b0, a_operand[0+:MWIDTH]};
 assign operand_b = (|b_operand[MWIDTH+:EWIDTH]) ? {1'b1, b_operand[0+:MWIDTH]} : {1'b0, b_operand[0+:MWIDTH]};
 
+
 // Multiply Mantissa by Radix-4 Booth Multiplier
-r4_mb11 #(
- .WIDTH (MWIDTH+1)
-  ) u_r4_mb11 (
-      .CLK        (1'b0
-  ),  .RST        (1'b0
-  ),  .mx         (operand_a     
-  ),  .my         (operand_b     
-  ),  .sum        (product_sum     
-  ),  .carry      (product_carry    
-	));
+wire [15:0] operand_a_padded = {5'h0, operand_a};
+wire [15:0] operand_b_padded = {5'h0, operand_b};
+wire [31:0] booth_mul_sum; 
+wire [31:0] booth_mul_carry;
+
+radix4_booth_multiplier #(
+  .DWIDTH (16)
+)
+u_radix4_booth_multiplier (
+  .A (operand_a_padded),
+  .B (operand_b_padded),
+  .sum (booth_mul_sum),
+  .carry (booth_mul_carry)
+);
+
+assign product_sum   = booth_mul_sum  [2*MWIDTH+1:0];
+assign product_carry = booth_mul_carry[2*MWIDTH+1:0];
+
+//r4_mb11 #(
+// .WIDTH (MWIDTH+1)
+//  ) u_r4_mb11 (
+//      .CLK        (1'b0
+//  ),  .RST        (1'b0
+//  ),  .mx         (operand_a     
+//  ),  .my         (operand_b     
+//  ),  .sum        (product_sum     
+//  ),  .carry      (product_carry    
+//	));
 
 // Exponent operation
 wire [EWIDTH-1:0] exponent_a;
@@ -58,6 +77,7 @@ assign exponent_b = (|b_operand[MWIDTH+:EWIDTH]) ? b_operand[MWIDTH+:EWIDTH]-BIA
 
 assign product_exponent = exponent_a + exponent_b;
 
+assign o_sign     = sign;
 assign o_sum      = product_sum;
 assign o_carry    = product_carry;
 assign o_exponent = product_exponent;
